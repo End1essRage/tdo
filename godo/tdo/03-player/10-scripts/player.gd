@@ -1,11 +1,22 @@
 extends CharacterBody2D
 class_name Player
 
-@export var walk_speed: float = 100.0
-@export var run_speed: float = 180.0
-@export var dash_speed: float = 400.0
-@export var shoot_slowdown_multiplier: float = 0.7 # Замедление при стрельбе
-@export var dash_cooldown_duration: float = 1.5
+@export var walk_speed: float
+@export var run_speed: float
+@export var dash_speed: float
+@export var shoot_slowdown_multiplier: float # Замедление при стрельбе
+
+# --- Система зарядов дэша ---
+var max_dashes: int
+var current_dashes: int
+
+var dash_recharge_time: float
+var dash_cooldown_duration: float # кд между зарядами считаетя с конца дэша
+
+var dash_cooldown_timer: float # Кулдаун между использованиями
+var recharge_timer: float # Таймер восстановления заряда
+
+var drop_dash_recharge_progress: bool = false
 
 var sprite: AnimatedSprite2D
 var input_comp: Node
@@ -17,7 +28,6 @@ var damage_flash_component: Node
 var status_effect_manager: Node
 
 var facing_direction: Vector2 = Vector2.DOWN
-var dash_cooldown: float = 0.0
 var movement_multiplier: float = 1.0 # Множитель от статус-эффектов
 
 func _ready() -> void:
@@ -32,18 +42,50 @@ func _ready() -> void:
 	
 	if not sprite or not input_comp or not movement_state_machine:
 		push_error("Не удалось найти базовые компоненты игрока! Проверь PlayerBuilder.")
-
-# --- GODOT NATIVE DI: Универсальный геттер для компонентов ---
-func get_component(component_name: String) -> Node:
-	return get_node_or_null(component_name)
+		
+	current_dashes = max_dashes	
 func _physics_process(delta: float) -> void:
-	if dash_cooldown > 0:
-		dash_cooldown -= delta
+	# --- НОВОЕ: Логика зарядов дэша ---
+	# 1. Уменьшаем кулдаун между использованиями
+	if dash_cooldown_timer > 0:
+		dash_cooldown_timer -= delta
 	
+	# 2. Восстанавливаем заряды, если есть свободные слоты
+	if current_dashes < max_dashes:
+		recharge_timer += delta
+		if recharge_timer >= dash_recharge_time:
+			recharge_timer = 0.0
+			current_dashes += 1
+			print("Dash charge restored! Current: ", current_dashes, "/", max_dashes)
+	
+	# Движение
 	if input_comp.direction != Vector2.ZERO:
 		facing_direction = input_comp.direction
 	
 	move_and_slide()
+
+# --- НОВОЕ: Метод для использования заряда ---
+func use_dash_charge() -> bool:
+	if current_dashes > 0:
+		current_dashes -= 1
+		if drop_dash_recharge_progress:
+			recharge_timer = 0.0  # Сбрасываем прогресс восстановления
+		print("Dash used! Charges remaining: ", current_dashes, "/", max_dashes)
+		return true
+	return false
+
+# --- НОВОЕ: Геттеры для UI ---
+func get_dash_charge_ratio() -> float:
+	return float(current_dashes) / max_dashes
+
+func get_recharge_progress() -> float:
+	if current_dashes >= max_dashes:
+		return 1.0
+	return recharge_timer / dash_recharge_time
+	
+# --- GODOT NATIVE DI: Универсальный геттер для компонентов ---
+func get_component(component_name: String) -> Node:
+	return get_node_or_null(component_name)
 
 func get_effective_speed(base_speed: float) -> float:
 	var speed = base_speed * movement_multiplier
@@ -79,7 +121,7 @@ func respawn(spawn_position: Vector2) -> void:
 	reload_component.reload_progress = 0.0
 	
 	# Сбрасываем кулдауны
-	dash_cooldown = 0.0
+	dash_cooldown_timer = 0.0
 	shooting_component.fire_cooldown = 0.0
 	
 	# Очищаем статус-эффекты
@@ -88,6 +130,24 @@ func respawn(spawn_position: Vector2) -> void:
 	
 	# Возвращаем в Idle
 	movement_state_machine.transition_to("IdleState")
+
+# --- Проверяем все условия для дэша ---
+func can_dash() -> bool:
+	# Условие 1: Заряды есть
+	if current_dashes <= 0:
+		return false
+	
+	# Условие 2: Кулдаун между дэшами прошёл
+	if dash_cooldown_timer > 0:
+		return false
+	
+	# Условие 3: Мы НЕ в DashState (не тратим заряд впустую)
+	var current_state = movement_state_machine.current_state
+	if current_state != null and current_state.name == "DashState":
+		return false
+	
+	return true
+
 
 func update_animation(prefix: String):
 	if sprite == null:

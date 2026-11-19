@@ -1,14 +1,20 @@
 extends Node2D
 class_name PlayerBuilder
 
+
+
 @export_group("Player Overrides")
 @export var custom_sprite_frames: SpriteFrames
 @export var player_speed: float = 100.0
 @export var player_run_speed: float = 180.0
 @export var player_dash_speed: float = 400.0
 @export var dash_duration: float = 0.3
-@export var dash_cooldown_duration: float = 1.5
-@export var shoot_slowdown_multiplier: float = 0.7 # НОВОЕ!
+@export var shoot_slowdown_multiplier: float = 0.7
+
+@export_group("Dash Charges")
+@export var max_dashes: int = 2  # Максимум зарядов
+@export var dash_recharge_time: float = 3.0  # Время восстановления одного заряда
+@export var dash_cooldown_duration: float = 0.5  # Минимальный интервал между дэшами
 
 const PLAYER_SCRIPT = preload("res://03-player/10-scripts/player.gd")
 const INPUT_SCRIPT = preload("res://03-player/10-scripts/input_component.gd")
@@ -24,6 +30,8 @@ const HEALTH_COMPONENT_SCRIPT = preload("res://03-player/10-scripts/components/h
 const DAMAGE_FLASH_COMPONENT_SCRIPT = preload("res://03-player/10-scripts/components/damage_flash_component.gd")
 const STATUS_EFFECT_MANAGER_SCRIPT = preload("res://03-player/10-scripts/status-effects/manager.gd")
 const PLAYER_UI_SCRIPT = preload("res://03-player/10-scripts/ui/player_ui.gd")
+
+const DASH_CHARGES_UI_SCRIPT = preload("res://03-player/10-scripts/ui/dash_charges_ui.gd")
 
 func _ready() -> void:
 	print("--- Сборка игрока начата ---")
@@ -42,6 +50,11 @@ func build_player() -> CharacterBody2D:
 	player.dash_cooldown_duration = dash_cooldown_duration
 	player.shoot_slowdown_multiplier = shoot_slowdown_multiplier # НОВОЕ!
 	player.motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
+	
+	player.max_dashes = max_dashes
+	player.dash_recharge_time = dash_recharge_time
+	player.dash_cooldown_duration = dash_cooldown_duration
+
 	player.add_to_group("player")
 	
 	var sprite = AnimatedSprite2D.new()
@@ -84,6 +97,12 @@ func build_player() -> CharacterBody2D:
 	player_ui.name = "PlayerUI"
 	player_ui.set_script(PLAYER_UI_SCRIPT)
 	player.add_child(player_ui)
+	
+	# --- НОВОЕ: UI для зарядов дэша ---
+	var dash_ui = Node2D.new()
+	dash_ui.name = "DashChargesUI"
+	dash_ui.set_script(DASH_CHARGES_UI_SCRIPT)
+	player.add_child(dash_ui)
 	
 	return player
 
