@@ -1,6 +1,6 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://bqkrnldlp8dqw"]
 
-[ext_resource type="Texture2D" uid="uid://bq34rhtc5u6gg" path="res://00-row-assets/effects/Fantasy Spells/spell_death_001/spell_death_001_small_red/spritesheet.png" id="1_c0b2c"]
+[ext_resource type="Texture2D" uid="uid://bq34rhtc5u6gg" path="res://05-row-assets/effects/Fantasy Spells/spell_death_001/spell_death_001_small_red/spritesheet.png" id="1_c0b2c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gkabq"]
 atlas = ExtResource("1_c0b2c")

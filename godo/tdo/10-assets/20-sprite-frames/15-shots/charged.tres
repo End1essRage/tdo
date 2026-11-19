@@ -1,11 +1,11 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://clveag3yj50ro"]
 
-[ext_resource type="Texture2D" uid="uid://ckq5fsvlev6x6" path="res://00-row-assets/Warped shooting fx files/Warped shooting fx files/Assets/Pixelart/charged/sprites/charged1.png" id="1_5u4ao"]
-[ext_resource type="Texture2D" uid="uid://cr7ydaxaplilf" path="res://00-row-assets/Warped shooting fx files/Warped shooting fx files/Assets/Pixelart/charged/sprites/charged2.png" id="2_pkvs2"]
-[ext_resource type="Texture2D" uid="uid://bqyss3jgtow8s" path="res://00-row-assets/Warped shooting fx files/Warped shooting fx files/Assets/Pixelart/charged/sprites/charged3.png" id="3_37mxu"]
-[ext_resource type="Texture2D" uid="uid://c63xtogirqo0h" path="res://00-row-assets/Warped shooting fx files/Warped shooting fx files/Assets/Pixelart/charged/sprites/charged4.png" id="4_vbrhv"]
-[ext_resource type="Texture2D" uid="uid://bqhuhl64sr2ca" path="res://00-row-assets/Warped shooting fx files/Warped shooting fx files/Assets/Pixelart/charged/sprites/charged5.png" id="5_unqa0"]
-[ext_resource type="Texture2D" uid="uid://ryw1nw7pcbj0" path="res://00-row-assets/Warped shooting fx files/Warped shooting fx files/Assets/Pixelart/charged/sprites/charged6.png" id="6_4utdo"]
+[ext_resource type="Texture2D" uid="uid://ckq5fsvlev6x6" path="res://05-row-assets/Warped shooting fx files/Warped shooting fx files/Assets/Pixelart/charged/sprites/charged1.png" id="1_5u4ao"]
+[ext_resource type="Texture2D" uid="uid://cr7ydaxaplilf" path="res://05-row-assets/Warped shooting fx files/Warped shooting fx files/Assets/Pixelart/charged/sprites/charged2.png" id="2_pkvs2"]
+[ext_resource type="Texture2D" uid="uid://bqyss3jgtow8s" path="res://05-row-assets/Warped shooting fx files/Warped shooting fx files/Assets/Pixelart/charged/sprites/charged3.png" id="3_37mxu"]
+[ext_resource type="Texture2D" uid="uid://c63xtogirqo0h" path="res://05-row-assets/Warped shooting fx files/Warped shooting fx files/Assets/Pixelart/charged/sprites/charged4.png" id="4_vbrhv"]
+[ext_resource type="Texture2D" uid="uid://bqhuhl64sr2ca" path="res://05-row-assets/Warped shooting fx files/Warped shooting fx files/Assets/Pixelart/charged/sprites/charged5.png" id="5_unqa0"]
+[ext_resource type="Texture2D" uid="uid://ryw1nw7pcbj0" path="res://05-row-assets/Warped shooting fx files/Warped shooting fx files/Assets/Pixelart/charged/sprites/charged6.png" id="6_4utdo"]
 
 [resource]
 animations = [{

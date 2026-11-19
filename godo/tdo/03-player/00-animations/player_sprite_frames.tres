@@ -1,11 +1,11 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://fm2xlengmhnp"]
 
-[ext_resource type="Texture2D" uid="uid://ds4qkj8ikteyg" path="res://00-row-assets/Eris Esra's Character Template 4.1/16x16/16x16 Attack-Sheet.png" id="1_pi153"]
-[ext_resource type="Texture2D" uid="uid://bk561l5s6ohh4" path="res://00-row-assets/Eris Esra's Character Template 4.1/16x16/16x16 Idle-Sheet.png" id="2_mk6ho"]
-[ext_resource type="Texture2D" uid="uid://ce7242uj5x3c3" path="res://00-row-assets/Eris Esra's Character Template 4.1/16x16/16x16 Interact-Sheet.png" id="3_uwsfa"]
-[ext_resource type="Texture2D" uid="uid://bpelvw2bgd5oi" path="res://00-row-assets/Eris Esra's Character Template 4.1/16x16/16x16 Rotate-Sheet.png" id="4_vvp1d"]
-[ext_resource type="Texture2D" uid="uid://4e6sj07f1lkv" path="res://00-row-assets/Eris Esra's Character Template 4.1/16x16/16x16 Run-Sheet.png" id="5_quq68"]
-[ext_resource type="Texture2D" uid="uid://capgb7istjc6u" path="res://00-row-assets/Eris Esra's Character Template 4.1/16x16/16x16 Walk-Sheet.png" id="6_rq3vd"]
+[ext_resource type="Texture2D" uid="uid://ds4qkj8ikteyg" path="res://05-row-assets/Eris Esra's Character Template 4.1/16x16/16x16 Attack-Sheet.png" id="1_pi153"]
+[ext_resource type="Texture2D" uid="uid://bk561l5s6ohh4" path="res://05-row-assets/Eris Esra's Character Template 4.1/16x16/16x16 Idle-Sheet.png" id="2_mk6ho"]
+[ext_resource type="Texture2D" uid="uid://ce7242uj5x3c3" path="res://05-row-assets/Eris Esra's Character Template 4.1/16x16/16x16 Interact-Sheet.png" id="3_uwsfa"]
+[ext_resource type="Texture2D" uid="uid://bpelvw2bgd5oi" path="res://05-row-assets/Eris Esra's Character Template 4.1/16x16/16x16 Rotate-Sheet.png" id="4_vvp1d"]
+[ext_resource type="Texture2D" uid="uid://4e6sj07f1lkv" path="res://05-row-assets/Eris Esra's Character Template 4.1/16x16/16x16 Run-Sheet.png" id="5_quq68"]
+[ext_resource type="Texture2D" uid="uid://capgb7istjc6u" path="res://05-row-assets/Eris Esra's Character Template 4.1/16x16/16x16 Walk-Sheet.png" id="6_rq3vd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ljr78"]
 atlas = ExtResource("1_pi153")
