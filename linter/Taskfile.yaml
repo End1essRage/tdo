@@ -1,0 +1,17 @@
+version: '3'
+
+tasks:
+  # Задача для сборки образа
+  build:
+    desc: "Собрать Docker-образ с GDShrapt"
+    cmds:
+      - docker compose build
+
+  # Основная задача для анализа
+  analyze:
+    desc: "Запустить анализ GDShrapt. Использование: task analyze"
+    cmds:
+      # Берем путь из аргумента CLI или из переменной PROJECT_DIR
+      - docker compose run --rm gdshrapt gdshrapt analyze . --format json > gdshrapt-report.json
+    # Убираем автоматический вывод команды, чтобы не было мусора
+    silent: false

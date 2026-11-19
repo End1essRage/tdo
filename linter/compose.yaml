@@ -1,0 +1,10 @@
+services:
+  gdshrapt:
+    build: .
+    working_dir: /project
+    volumes:
+      # Монтируем проект. По умолчанию берется текущая папка (.)
+      # Можно переопределить через переменную PROJECT_PATH
+      - "./../godo/tdo:/project:ro"
+    # По умолчанию просто показываем версию, чтобы контейнер не падал
+    command: ["gdshrapt", "--version"]
