@@ -28,12 +28,15 @@ const DASH_STATE_SCRIPT = preload("res://03-player/10-scripts/movement-states/da
 
 const SHOOTING_COMPONENT_SCRIPT = preload("res://03-player/10-scripts/components/shooting_component.gd")
 const RELOAD_COMPONENT_SCRIPT = preload("res://03-player/10-scripts/components/reload_component.gd")
-const HEALTH_COMPONENT_SCRIPT = preload("res://03-player/10-scripts/components/health_component.gd")
-const DAMAGE_FLASH_COMPONENT_SCRIPT = preload("res://03-player/10-scripts/components/damage_flash_component.gd")
+const HEALTH_COMPONENT_SCRIPT = preload("res://11-scripts/10-components/health_component.gd")
+const DAMAGE_FLASH_COMPONENT_SCRIPT = preload("res://11-scripts/10-components/damage_flash_component.gd")
 const STATUS_EFFECT_MANAGER_SCRIPT = preload("res://03-player/10-scripts/status-effects/manager.gd")
-const PLAYER_UI_SCRIPT = preload("res://03-player/10-scripts/ui/player_ui.gd")
+const PLAYER_UI_SCRIPT = preload("res://20-ui/player_ui.gd")
 
-const DASH_CHARGES_UI_SCRIPT = preload("res://03-player/10-scripts/ui/dash_charges_ui.gd")
+const CURSOR_COMPONENT_SCRIPT = preload("res://12-cursor/cursor_component.gd")
+const CAST_COMPONENT_SCRIPT = preload("res://03-player/10-scripts/components/cast_component.gd")
+
+const DASH_CHARGES_UI_SCRIPT = preload("res://20-ui/dash_charges_ui.gd")
 
 func _ready() -> void:
 	print("--- Сборка игрока начата ---")
@@ -72,7 +75,7 @@ func build_player() -> CharacterBody2D:
 	collision.shape = shape
 	player.add_child(collision)
 	
-	var input_comp = Node.new()
+	var input_comp = Node2D.new()
 	input_comp.name = "InputComponent"
 	input_comp.set_script(INPUT_SCRIPT)
 	player.add_child(input_comp)
@@ -87,10 +90,16 @@ func build_player() -> CharacterBody2D:
 	_create_state(movement_state_machine, "DashState", DASH_STATE_SCRIPT, {"dash_duration": dash_duration})
 	
 	_create_component(player, "ShootingComponent", SHOOTING_COMPONENT_SCRIPT)
+	_create_component(player, "CastComponent", CAST_COMPONENT_SCRIPT)
 	_create_component(player, "ReloadComponent", RELOAD_COMPONENT_SCRIPT)
 	_create_component(player, "HealthComponent", HEALTH_COMPONENT_SCRIPT)
 	_create_component(player, "DamageFlashComponent", DAMAGE_FLASH_COMPONENT_SCRIPT)
 	_create_component(player, "StatusEffectManager", STATUS_EFFECT_MANAGER_SCRIPT)
+	
+	var cursor_component = Node2D.new()
+	cursor_component.name = "CursorComponent"
+	cursor_component.set_script(CURSOR_COMPONENT_SCRIPT)
+	player.add_child(cursor_component)
 	
 	# --- Инстансим UI  ---
 	var player_ui = Node2D.new()

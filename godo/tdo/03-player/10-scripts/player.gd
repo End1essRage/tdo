@@ -21,6 +21,7 @@ var sprite: AnimatedSprite2D
 var input_comp: Node
 var movement_state_machine: Node
 var shooting_component: Node
+var cast_component: Node   
 var reload_component: Node
 var health_component: Node
 var damage_flash_component: Node
@@ -29,15 +30,21 @@ var status_effect_manager: Node
 var facing_direction: Vector2 = Vector2.DOWN
 var movement_multiplier: float = 1.0 # Множитель от статус-эффектов
 
+var cursor_component: Node        # НОВОЕ
+
+var aim_direction: Vector2 = Vector2.DOWN  # НОВОЕ: направление прицела
+
 func _ready() -> void:
 	sprite = get_node("AnimatedSprite2D")
 	input_comp = get_node("InputComponent")
 	movement_state_machine = get_node("MovementStateMachine")
 	shooting_component = get_node("ShootingComponent")
+	cast_component = get_node_or_null("CastComponent")
 	reload_component = get_node("ReloadComponent")
 	health_component = get_node("HealthComponent")
 	status_effect_manager = get_node("StatusEffectManager")
 	damage_flash_component = get_node_or_null("DamageFlashComponent")
+	cursor_component = get_node_or_null("CursorComponent")
 	
 	if not sprite or not input_comp or not movement_state_machine:
 		push_error("Не удалось найти базовые компоненты игрока! Проверь PlayerBuilder.")
@@ -65,6 +72,8 @@ func _physics_process(delta: float) -> void:
 
 # --- НОВОЕ: Метод для использования заряда ---
 func use_dash_charge() -> bool:
+	if !can_dash():
+		return false 
 	if current_dashes > 0:
 		current_dashes -= 1
 		if drop_dash_recharge_progress:

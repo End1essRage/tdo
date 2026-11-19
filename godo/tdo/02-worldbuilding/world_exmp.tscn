@@ -4,7 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://c1c16u0svoe3u" path="res://03-player/player_builder.tscn" id="1_x77n2"]
 [ext_resource type="SpriteFrames" uid="uid://fm2xlengmhnp" path="res://03-player/00-animations/player_sprite_frames.tres" id="2_5aqqx"]
 [ext_resource type="Script" uid="uid://dmyt25fjj7rk1" path="res://03-player/10-scripts/camera.gd" id="4_1fw4u"]
-[ext_resource type="Script" uid="uid://def6elfiym6qv" path="res://03-player/10-scripts/ui/ui-palette.gd" id="4_56g1n"]
+[ext_resource type="Script" uid="uid://def6elfiym6qv" path="res://20-ui/ui-palette.gd" id="4_56g1n"]
+[ext_resource type="Script" uid="uid://c77wjb05fkhht" path="res://04-enemies/00-dummy/dummy_builder.gd" id="5_q0qcs"]
+[ext_resource type="SpriteFrames" uid="uid://dq86rqtwgrryd" path="res://04-enemies/00-dummy/sprite_frames.tres" id="6_rt0ih"]
 
 [sub_resource type="Resource" id="Resource_1fw4u"]
 script = ExtResource("4_56g1n")
@@ -34,9 +36,14 @@ custom_sprite_frames = ExtResource("2_5aqqx")
 player_speed = 40.0
 max_dashes = 5
 player_dash_speed = 500.0
-dash_duration = 0.2
-dash_cooldown_duration = 1.5
+dash_duration = 0.13
+dash_cooldown_duration = 1.8
 ui_palette = SubResource("Resource_1fw4u")
+
+[node name="dummy_builder" type="Node2D" parent="." unique_id=918038521]
+position = Vector2(371, -27)
+script = ExtResource("5_q0qcs")
+custom_sprite_frames = ExtResource("6_rt0ih")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=937849865]
 script = ExtResource("4_1fw4u")

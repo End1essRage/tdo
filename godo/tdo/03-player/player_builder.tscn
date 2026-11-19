@@ -1,6 +1,12 @@
 [gd_scene format=3 uid="uid://c1c16u0svoe3u"]
 
 [ext_resource type="Script" uid="uid://b5vw345uxnpp3" path="res://03-player/10-scripts/player_builder.gd" id="1_y30ky"]
+[ext_resource type="Script" uid="uid://def6elfiym6qv" path="res://20-ui/ui-palette.gd" id="2_wqidc"]
+
+[sub_resource type="Resource" id="Resource_y30ky"]
+script = ExtResource("2_wqidc")
+metadata/_custom_type_script = "uid://def6elfiym6qv"
 
 [node name="player_builder" type="Node2D" unique_id=257400564]
 script = ExtResource("1_y30ky")
+ui_palette = SubResource("Resource_y30ky")

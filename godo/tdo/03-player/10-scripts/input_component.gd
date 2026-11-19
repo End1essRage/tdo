@@ -1,34 +1,45 @@
 class_name InputComponent
-extends Node
+extends Node2D
 
 var direction: Vector2 = Vector2.ZERO
+var aim_direction: Vector2 = Vector2.ZERO  # НОВОЕ: направление к курсору
 var player: Player
 
 func _ready() -> void:
 	player = get_parent() as Player
 
 func _process(_delta: float) -> void:
-	# 1. Движение
+	# Движение
 	direction = Vector2(
 		Input.get_axis("move_left", "move_right"),
 		Input.get_axis("move_up", "move_down")
 	).normalized()
 	
-	# 2. Дэш — с защитой от траты заряда во время дэша
+	# Прицеливание — в сторону курсораget_global_mouse_position
+	if player != null:
+		var mouse_pos := get_global_mouse_position()
+		aim_direction = (mouse_pos - player.global_position).normalized()
+	
+	# Дэш
 	if Input.is_action_just_pressed("dash"):
-		if player != null and player.can_dash():
-			player.use_dash_charge()
+		if player != null and player.use_dash_charge():
 			player.movement_state_machine.transition_to("DashState")
-
-	# 3. Стрельба
+	
+	# Стрельба (зажатие)
 	if Input.is_action_pressed("shoot"):
 		if player != null and player.shooting_component != null:
-			player.shooting_component.try_shoot()
+			player.shooting_component.try_shoot(aim_direction)
 	
-	# 4. Перезарядка
+	# Каст (одиночное нажатие)
+	if Input.is_action_just_pressed("cast"):
+		if player != null and player.cast_component != null:
+			player.cast_component.try_cast(aim_direction)
+	
+	# Перезарядка
 	if Input.is_action_just_pressed("reload"):
 		if player != null and player.reload_component != null:
-			if player.reload_component.current_phase == player.reload_component.ReloadPhase.IDLE:
-				player.reload_component.start_reload()
+			var rc = player.reload_component
+			if rc.current_phase == rc.ReloadPhase.IDLE:
+				rc.start_reload()
 			else:
-				player.reload_component.try_manual_reload()
+				rc.try_manual_reload()

@@ -1,0 +1,26 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://b38avqwjxc1ac"]
+
+[ext_resource type="Texture2D" uid="uid://bb70g6cfy7nxl" path="res://00-row-assets/Warped shooting fx files/Warped shooting fx files/Assets/Pixelart/Pulse/sprites/pulse1.png" id="1_5ad6l"]
+[ext_resource type="Texture2D" uid="uid://d08nprd6vorhe" path="res://00-row-assets/Warped shooting fx files/Warped shooting fx files/Assets/Pixelart/Pulse/sprites/pulse2.png" id="2_qfjq1"]
+[ext_resource type="Texture2D" uid="uid://m21f4e5ksnki" path="res://00-row-assets/Warped shooting fx files/Warped shooting fx files/Assets/Pixelart/Pulse/sprites/pulse3.png" id="3_g8vne"]
+[ext_resource type="Texture2D" uid="uid://b6scnf7pbqhqo" path="res://00-row-assets/Warped shooting fx files/Warped shooting fx files/Assets/Pixelart/Pulse/sprites/pulse4.png" id="4_ff4v0"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5ad6l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qfjq1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_g8vne")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ff4v0")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]

@@ -4,15 +4,23 @@ class_name ShootingComponent
 var player: Player
 var is_shooting: bool = false
 var fire_cooldown: float = 0.0
+
 @export var fire_rate: float = 0.2
 @export var max_ammo: int = 30
+@export var damage: int = 10
+@export var bullet_speed: float = 450.0
+@export var bullet_lifetime: float = 1.5
+@export var spawn_offset: float = 12.0  # Отступ от центра игрока
+
 var current_ammo: int
 
 signal shot_fired
 signal ammo_changed(current: int, maximum: int)
 
+const PROJECTILE_BUILDER = preload("res://05-projectiles/projectile_builder.gd")
+
 func _ready() -> void:
-	player = get_parent()
+	player = get_parent() as Player
 	current_ammo = max_ammo
 
 func _process(delta: float) -> void:
@@ -21,8 +29,10 @@ func _process(delta: float) -> void:
 	else:
 		is_shooting = false
 
-func try_shoot() -> bool:
+func try_shoot(aim_direction: Vector2) -> bool:
 	if fire_cooldown > 0 or current_ammo <= 0:
+		return false
+	if aim_direction == Vector2.ZERO:
 		return false
 	
 	is_shooting = true
@@ -30,6 +40,18 @@ func try_shoot() -> bool:
 	current_ammo -= 1
 	ammo_changed.emit(current_ammo, max_ammo)
 	shot_fired.emit()
+	
+	# Спавн пули
+	var spawn_pos := player.global_position + aim_direction.normalized() * spawn_offset
+	var bullet := PROJECTILE_BUILDER.spawn_bullet(spawn_pos, aim_direction, damage, bullet_speed, bullet_lifetime)
+	
+	# Настройка collision layers: пуля игрока
+	bullet.collision_layer = 2    # слой 2 = player_projectiles
+	bullet.collision_mask = 8     # слой 4 = enemies (бит 4 = 8)
+	
+	# Добавляем в текущую сцену
+	get_tree().current_scene.add_child(bullet)
+	
 	return true
 
 func reload_ammo() -> void:
