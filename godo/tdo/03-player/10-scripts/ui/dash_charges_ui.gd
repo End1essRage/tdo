@@ -9,8 +9,9 @@ var player: Player
 @export var charge_spacing: float = 2.0
 @export var offset_y: float = -38.0
 
-# --- ПАЛИТРА (задаётся из PlayerBuilder) ---
-var palette: UIPalette
+# --- ПАЛИТРА ---
+@export_group("Colors")
+@export var palette: UIPalette
 
 # --- FALLBACK ЦВЕТА ---
 var color_empty: Color = Color(0.2, 0.2, 0.2)
@@ -18,6 +19,8 @@ var color_full: Color = Color.CYAN
 var color_charging: Color = Color(0.3, 0.7, 0.9)
 var color_no_charges_bg: Color = Color(0.5, 0.1, 0.1, 0.6)
 var color_normal_bg: Color = Color(0, 0, 0, 0.3)
+var color_ready_bg: Color = Color(0, 0.5, 0.5, 0.6)      # НОВОЕ
+var color_cooldown_bg: Color = Color(0.1, 0.1, 0.1, 0.6)  # НОВОЕ
 
 # --- ВНУТРЕННИЕ УЗЛЫ ---
 var charges_container: HBoxContainer
@@ -62,6 +65,8 @@ func _apply_palette() -> void:
 		color_charging = palette.color_dash_charging
 		color_no_charges_bg = palette.color_dash_no_charges_bg
 		color_normal_bg = palette.color_dash_normal_bg
+		color_ready_bg = palette.color_dash_ready_bg        # НОВОЕ
+		color_cooldown_bg = palette.color_dash_cooldown_bg  # НОВОЕ
 
 func _build_ui() -> void:
 	background = ColorRect.new()
@@ -113,11 +118,18 @@ func _process(_delta: float) -> void:
 	_update_visuals()
 
 func _update_visuals() -> void:
+	# --- НОВОЕ: Логика цвета рамки ---
 	if player.current_dashes == 0:
+		# 0 зарядов — красный фон
 		background.color = color_no_charges_bg
+	elif player.dash_cooldown_timer > 0:
+		# Есть заряды, но кулдаун — тёмный фон
+		background.color = color_cooldown_bg
 	else:
-		background.color = color_normal_bg
+		# Есть заряды и нет кулдауна — яркий фон (можно дэш!)
+		background.color = color_ready_bg
 	
+	# Перестроение UI, если max_dashes изменился
 	if charge_slots.size() != player.max_dashes:
 		for child in charges_container.get_children():
 			child.queue_free()
@@ -131,6 +143,7 @@ func _update_visuals() -> void:
 		background.position.x = -background.size.x / 2.0
 		charges_container.position.x = -(player.max_dashes * charge_size.x + (player.max_dashes - 1) * charge_spacing) / 2.0
 	
+	# Обновление слотов
 	var recharge_progress = 0.0
 	if player.current_dashes < player.max_dashes and player.dash_recharge_time > 0:
 		recharge_progress = player.recharge_timer / player.dash_recharge_time

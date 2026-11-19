@@ -1,11 +1,11 @@
 extends Node2D
 class_name PlayerBuilder
 
-
-
 @export_group("Player Overrides")
 @export var custom_sprite_frames: SpriteFrames
 @export var player_speed: float = 100.0
+@export var base_turn_speed: float = 12.0   # Базовая скорость поворота (рад/сек)
+@export var min_turn_speed: float = 2.0     # Минимальная скорость (не может быть ниже)
 @export var player_run_speed: float = 180.0
 @export var player_dash_speed: float = 400.0
 @export var dash_duration: float = 0.3
@@ -57,7 +57,7 @@ func build_player() -> CharacterBody2D:
 	player.max_dashes = max_dashes
 	player.dash_recharge_time = dash_recharge_time
 	player.dash_cooldown_duration = dash_cooldown_duration
-
+	
 	player.add_to_group("player")
 	
 	var sprite = AnimatedSprite2D.new()
