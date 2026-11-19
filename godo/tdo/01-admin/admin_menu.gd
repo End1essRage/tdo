@@ -1,63 +1,83 @@
 extends CanvasLayer
 
 @export var config: GameConfig
-@export var player: Player # Ссылка на игрока, чтобы применять изменения на лету
 
-@onready var panel: PanelContainer = $PanelContainer
-@onready var vbox: VBoxContainer = $PanelContainer/VBoxContainer
+@onready var tab_container: TabContainer = $PanelContainer/TabContainer
+@onready var pause_vbox: VBoxContainer = $PanelContainer/TabContainer/PauseTab/VBoxContainer
+@onready var admin_vbox: VBoxContainer = $PanelContainer/TabContainer/AdminTab/VBoxContainer
 
 func _ready() -> void:
-	# Скрываем меню по умолчанию
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	visible = false
-	_build_ui()
+	_build_pause_tab()
+	_build_admin_tab()
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"): # Кнопка Esc
+	if event.is_action_pressed("ui_cancel"):
 		visible = !visible
-		# Пауза, пока меню открыто
 		get_tree().paused = visible
+		if visible:
+			_build_admin_tab() # Обновляем значения при открытии
 
-func _build_ui() -> void:
-	if config == null:
-		return
+# --- ВКЛАДКА "PAUSE" ---
+func _build_pause_tab() -> void:
+	for child in pause_vbox.get_children():
+		pause_vbox.remove_child(child)
+		child.queue_free()
+		
+	var resume_btn = Button.new()
+	resume_btn.text = "Продолжить"
+	resume_btn.pressed.connect(func(): 
+		visible = false
+		get_tree().paused = false
+	)
+	pause_vbox.add_child(resume_btn)
+	
+	var quit_btn = Button.new()
+	quit_btn.text = "Выйти из игры"
+	quit_btn.pressed.connect(func(): get_tree().quit())
+	pause_vbox.add_child(quit_btn)
 
-	# Очищаем старые элементы
-	for child in vbox.get_children():
+# --- ВКЛАДКА "ADMIN" ---
+func _build_admin_tab() -> void:
+	if config == null: return
+
+	for child in admin_vbox.get_children():
+		admin_vbox.remove_child(child)
 		child.queue_free()
 
-	# Заголовок
 	var title = Label.new()
-	title.text = "⚙️ ADMIN MENU"
+	title.text = "⚙️ ADMIN SETTINGS"
 	title.add_theme_font_size_override("font_size", 20)
-	vbox.add_child(title)
+	admin_vbox.add_child(title)
 
-	# Блок "Player"
-	_add_block("Player", [
+	_add_block(admin_vbox, "Player", [
 		{"name": "player_speed", "type": "float", "min": 10, "max": 500, "step": 10}
 	])
 	
-	# Блок "Dash"
-	_add_block("Dash", [
+	_add_block(admin_vbox, "Dash", [
 		{"name": "max_dashes", "type": "int", "min": 1, "max": 10, "step": 1},
 		{"name": "player_dash_speed", "type": "float", "min": 100, "max": 1000, "step": 50}
 	])
 	
-	# Блок "Projectiles"
-	_add_block("Projectiles", [
+	_add_block(admin_vbox, "Projectiles", [
 		{"name": "projectile_damage", "type": "int", "min": 1, "max": 100, "step": 1},
 		{"name": "projectile_speed", "type": "float", "min": 100, "max": 1000, "step": 50}
 	])
 	
-	# Блок "Hit Effects" (выбор из массива)
-	_add_impact_selector()
+	_add_impact_selector(admin_vbox)
 	
-	# Блок "UI"
-	# ... (если нужно менять палитру)
+	# Кнопка применения
+	var apply_btn = Button.new()
+	apply_btn.text = "🔄 Применить и пересоздать игрока"
+	apply_btn.pressed.connect(_apply_and_recreate)
+	admin_vbox.add_child(apply_btn)
 
-func _add_block(block_name: String, properties: Array) -> void:
+# Вспомогательные методы добавления (перенесены с параметром parent)
+func _add_block(parent: Node, block_name: String, properties: Array) -> void:
 	var label = Label.new()
 	label.text = "--- " + block_name + " ---"
-	vbox.add_child(label)
+	parent.add_child(label)
 	
 	for prop in properties:
 		var hbox = HBoxContainer.new()
@@ -85,12 +105,12 @@ func _add_block(block_name: String, properties: Array) -> void:
 			control = slider
 			
 		hbox.add_child(control)
-		vbox.add_child(hbox)
+		parent.add_child(hbox)
 
-func _add_impact_selector() -> void:
+func _add_impact_selector(parent: Node) -> void:
 	var label = Label.new()
 	label.text = "--- Hit Effects ---"
-	vbox.add_child(label)
+	parent.add_child(label)
 	
 	var hbox = HBoxContainer.new()
 	var opt = OptionButton.new()
@@ -102,31 +122,36 @@ func _add_impact_selector() -> void:
 	opt.item_selected.connect(func(idx): _on_impact_selected(idx))
 	
 	hbox.add_child(opt)
-	vbox.add_child(hbox)
+	parent.add_child(hbox)
 
 func _on_value_changed(prop_name: String, value: Variant) -> void:
 	config.set(prop_name, value)
-	# Применяем изменения на лету, если игрок существует
-	_apply_changes()
+	# Ничего не применяем на лету, ждем кнопку
 
 func _on_impact_selected(index: int) -> void:
 	config.current_impact_index = index
-	_apply_changes()
 
-func _apply_changes() -> void:
-	if player == null:
+# --- ПЕРЕСОЗДАНИЕ ИГРОКА ---
+func _apply_and_recreate() -> void:
+	# 1. Находим PlayerBuilder (или сам узел игрока)
+	var builder = get_tree().current_scene.get_node_or_null("PlayerBuilder")
+	if builder == null:
+		push_error("PlayerBuilder не найден в сцене!")
 		return
 		
-	# Обновляем параметры игрока
-	player.walk_speed = config.player_speed
-	player.dash_speed = config.player_dash_speed
-	player.max_dashes = config.max_dashes
+	# 2. Удаляем старого игрока (если он есть)
+	var old_player = get_tree().get_first_node_in_group("player")
+	if old_player:
+		# Если PlayerBuilder создает игрока как ребенка, 
+		# то лучше удалить именно его, а не из группы
+		old_player.queue_free()
+		# Ждем кадр, чтобы Godot успел удалить
+		await get_tree().process_frame
+		
+	# 3. Пересоздаем игрока
+	var new_player = builder.build_player()
+	get_tree().current_scene.add_child(new_player) # Или add_child(builder) если билдер сам добавляет
 	
-	# Обновляем ShootingComponent
-	var shooting = player.get_node_or_null("ShootingComponent")
-	if shooting:
-		var impact_path = config.impact_effects[config.current_impact_index]
-		shooting.impact_frames_path = impact_path
-		shooting.damage = config.projectile_damage
-		shooting.bullet_speed = config.projectile_speed
-		print("Применен эффект: ", impact_path)
+	# 4. Возвращаем паузу и закрываем меню
+	get_tree().paused = false
+	visible = false
