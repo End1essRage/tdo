@@ -18,8 +18,6 @@ var projectile_builder: Node
 signal shot_fired
 signal ammo_changed(current: int, maximum: int)
 
-const PROJECTILE_BUILDER = preload("res://05-projectiles/projectile_builder.gd")
-
 func _ready() -> void:
 	player = get_parent() as Player
 	current_ammo = max_ammo
@@ -47,14 +45,17 @@ func try_shoot(aim_direction: Vector2) -> bool:
 	
 	# Спавн пули
 	var spawn_pos := player.global_position + aim_direction.normalized() * spawn_offset
+	var effect_to_use = "res://10-assets/20-sprite-frames/17-hits/3.tres"
 	var bullet := projectile_builder.spawn_bullet(
 		spawn_pos,
 		aim_direction,
 		damage,
 		bullet_speed,
-		bullet_lifetime
+		bullet_lifetime,
+		effect_to_use
 	) as Projectile
 	
+
 	# Настройка collision layers: пуля игрока
 	bullet.collision_layer = 2    # слой 2 = player_projectiles
 	bullet.collision_mask = 8     # слой 4 = enemies (бит 4 = 8)

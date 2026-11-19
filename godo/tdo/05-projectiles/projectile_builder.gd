@@ -22,23 +22,18 @@ func set_bullet_scene(scene: PackedScene) -> void:
 		current_bullet_scene = _default_scene
 
 # Спавн пули текущей сценой
-func spawn_bullet(from: Vector2, dir: Vector2, damage: int = 10, speed: float = 400.0, lifetime: float = 2.0) -> Projectile:
-	if current_bullet_scene == null:
-		push_error("ProjectileBuilder: сцена пули не задана!")
-		return null
-		
-	print("📦 current_bullet_scene = ", current_bullet_scene.resource_path)
+func spawn_bullet(from: Vector2, dir: Vector2, damage: int = 10, speed: float = 400.0, lifetime: float = 2.0, effect_path: String = "") -> Projectile:
 	var p := current_bullet_scene.instantiate() as Projectile
-	print("📦 Инстанс: ", p, " | детей: ", p.get_children().size())
-	for c in p.get_children():
-		print("    - ", c.name, " (", c.get_class(), ")")
-		
-	#p.global_position = from
+	
 	p.direction = dir.normalized()
 	p.damage = damage
 	p.speed = speed
 	p.lifetime = lifetime
 	
+	# Если передан путь к эффекту, задаем его
+	if effect_path != "":
+		p.impact_frames_path = effect_path
+		
 	return p
 
 # --- ВНУТРЕННЕЕ: дефолтная сцена (жёлтый пиксель 4x4) ---

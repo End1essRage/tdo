@@ -7,6 +7,17 @@ class_name Projectile
 @export var is_crit: bool = false
 @export var pierce: int = 0
 
+@export_group("Hit Effect")
+# Вместо SpriteFrames теперь используем путь к файлу
+@export var impact_frames_path: String = "res://10-assets/20-sprite-frames/17-hits/1.tres"
+@export var impact_anim_name: String = "default"
+@export var impact_anim_speed: float = 15.0
+
+const HIT_EFFECT_SCRIPT = preload("res://05-projectiles/hit_effect.gd")
+
+# Кэш загруженных ресурсов (общий для всех пуль)
+static var _frames_cache: Dictionary = {}
+
 var direction: Vector2 = Vector2.RIGHT
 var _hit_entities: Array[Node] = []
 var _timer: float = 0.0
@@ -15,51 +26,71 @@ func _ready() -> void:
 	rotation = direction.angle()
 	body_entered.connect(_on_body_entered)
 	area_entered.connect(_on_area_entered)
-	
-	# Отложенная инициализация - дети будут готовы
-	call_deferred("_init_visuals")
-
-func _init_visuals() -> void:
-	var aspr := get_node_or_null("AnimatedSprite2D") as AnimatedSprite2D
-	if aspr == null:
-		aspr = find_child("AnimatedSprite2D", true, false) as AnimatedSprite2D
-	if aspr == null:
-		print("⚠️ Projectile: AnimatedSprite2D не найден. Дети: ", 
-			get_children().map(func(c): return c.name))
-		return
-	if aspr == null:
-		push_warning("Projectile: AnimatedSprite2D не найден в сцене пули")
-		return
-	if aspr.sprite_frames == null:
-		push_warning("Projectile: SpriteFrames пустые!")
-		return
-	var names := aspr.sprite_frames.get_animation_names()
-	if names.is_empty():
-		push_warning("Projectile: нет анимаций в SpriteFrames")
-		return
-	var anim := "default" if "default" in names else names[0]
-	aspr.play(anim)
 
 func _physics_process(delta: float) -> void:
 	position += direction * speed * delta
 	_timer += delta
 	if _timer >= lifetime:
 		queue_free()
-		print("timed")
 
 func _on_body_entered(body: Node) -> void:
-	print("_on_body_entered")
-	if body in _hit_entities:
-		return
-	if body.has_method("take_damage"):
-		_apply_hit(body)
+	if body in _hit_entities: return
+	if body.has_method("take_damage"): _apply_hit(body)
 
 func _on_area_entered(area: Area2D) -> void:
-	print("_on_area_entered")
-	if area in _hit_entities:
-		return
-	if area.has_method("take_damage"):
-		_apply_hit(area)
+	if area in _hit_entities: return
+	if area.has_method("take_damage"): _apply_hit(area)
 
 func _apply_hit(target: Node) -> void:
-	_hit_entities.append
+	if target in _hit_entities: return
+	_hit_entities.append(target)
+
+	if target.has_method("take_damage"):
+		target.take_damage(damage, is_crit)
+
+	_spawn_hit_effect(target)
+
+	if pierce <= 0:
+		set_deferred("monitoring", false)
+		set_deferred("monitorable", false)
+		queue_free()
+	else:
+		pierce -= 1
+
+func _spawn_hit_effect(target: Node) -> void:
+	if impact_frames_path == "":
+		return
+
+	var frames: SpriteFrames = _frames_cache.get(impact_frames_path)
+	if frames == null:
+		if not ResourceLoader.exists(impact_frames_path):
+			push_error("Файл эффекта не найден: " + impact_frames_path)
+			return
+		frames = load(impact_frames_path) as SpriteFrames
+		if frames == null:
+			push_error("Указанный файл не является SpriteFrames: " + impact_frames_path)
+			return
+		_frames_cache[impact_frames_path] = frames
+
+	# Создаем узел
+	var effect := AnimatedSprite2D.new()
+	effect.set_script(HIT_EFFECT_SCRIPT)
+	effect.z_index = 100
+	effect.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+
+	var attach_to: Node2D = null
+	if target is Hurtbox and is_instance_valid(target.entity) and target.entity is Node2D:
+		attach_to = target.entity
+	elif target is Node2D:
+		attach_to = target
+		
+	if attach_to:
+		attach_to.add_child(effect)
+		effect.global_position = global_position
+		effect.rotation = 0
+	else:
+		get_tree().current_scene.add_child(effect)
+		effect.global_position = global_position
+
+	# 3. Запускаем с переопределением скорости
+	effect.setup_impact(frames, impact_anim_name, impact_anim_speed)

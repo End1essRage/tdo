@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dmxdupe0la4u"]
+
+[ext_resource type="Script" uid="uid://baqlpoyxhpub2" path="res://05-projectiles/hit_effect.gd" id="1_u7w8p"]
+
+[node name="HitEffect" type="AnimatedSprite2D" unique_id=256942171]
+script = ExtResource("1_u7w8p")
