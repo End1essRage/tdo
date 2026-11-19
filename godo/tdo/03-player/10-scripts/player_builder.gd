@@ -4,27 +4,26 @@ class_name PlayerBuilder
 @export_group("Player Overrides")
 @export var custom_sprite_frames: SpriteFrames
 @export var player_speed: float = 100.0
-@export var base_turn_speed: float = 12.0   # Базовая скорость поворота (рад/сек)
-@export var min_turn_speed: float = 2.0     # Минимальная скорость (не может быть ниже)
-@export var player_run_speed: float = 180.0
+
+@export var shoot_slowdown_multiplier: float = 0.7
+
+@export_group("Dash")
+@export var max_dashes: int = 2  # Максимум зарядов
+@export var dash_recharge_time: float = 3.0  # Время восстановления одного заряда
 @export var player_dash_speed: float = 400.0
 @export var dash_duration: float = 0.3
-@export var shoot_slowdown_multiplier: float = 0.7
+@export var dash_cooldown_duration: float = 0.5  # Минимальный интервал между дэшами
 
 @export_group("UI Palette")
 @export var ui_palette: UIPalette  # Создай ресурс UIPalette и перетащи сюда
 
-@export_group("Dash Charges")
-@export var max_dashes: int = 2  # Максимум зарядов
-@export var dash_recharge_time: float = 3.0  # Время восстановления одного заряда
-@export var dash_cooldown_duration: float = 0.5  # Минимальный интервал между дэшами
+
 
 const PLAYER_SCRIPT = preload("res://03-player/10-scripts/player.gd")
 const INPUT_SCRIPT = preload("res://03-player/10-scripts/input_component.gd")
 const MOVEMENT_STATE_MACHINE_SCRIPT = preload("res://03-player/10-scripts/movement_fsm.gd")
 const IDLE_STATE_SCRIPT = preload("res://03-player/10-scripts/movement-states/idle.gd")
 const WALK_STATE_SCRIPT = preload("res://03-player/10-scripts/movement-states/walk.gd")
-const RUN_STATE_SCRIPT = preload("res://03-player/10-scripts/movement-states/run.gd")
 const DASH_STATE_SCRIPT = preload("res://03-player/10-scripts/movement-states/dash.gd")
 
 const SHOOTING_COMPONENT_SCRIPT = preload("res://03-player/10-scripts/components/shooting_component.gd")
@@ -48,7 +47,6 @@ func build_player() -> CharacterBody2D:
 	player.set_script(PLAYER_SCRIPT)
 	
 	player.walk_speed = player_speed
-	player.run_speed = player_run_speed
 	player.dash_speed = player_dash_speed
 	player.dash_cooldown_duration = dash_cooldown_duration
 	player.shoot_slowdown_multiplier = shoot_slowdown_multiplier # НОВОЕ!
@@ -86,7 +84,6 @@ func build_player() -> CharacterBody2D:
 	
 	_create_state(movement_state_machine, "IdleState", IDLE_STATE_SCRIPT)
 	_create_state(movement_state_machine, "WalkState", WALK_STATE_SCRIPT)
-	_create_state(movement_state_machine, "RunState", RUN_STATE_SCRIPT)
 	_create_state(movement_state_machine, "DashState", DASH_STATE_SCRIPT, {"dash_duration": dash_duration})
 	
 	_create_component(player, "ShootingComponent", SHOOTING_COMPONENT_SCRIPT)

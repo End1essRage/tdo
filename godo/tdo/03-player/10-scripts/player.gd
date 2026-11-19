@@ -1,10 +1,9 @@
 extends CharacterBody2D
 class_name Player
 
-@export var walk_speed: float
-@export var run_speed: float
-@export var dash_speed: float
-@export var shoot_slowdown_multiplier: float # Замедление при стрельбе
+var walk_speed: float
+var dash_speed: float
+var shoot_slowdown_multiplier: float # Замедление при стрельбе
 
 # --- Система зарядов дэша ---
 var max_dashes: int

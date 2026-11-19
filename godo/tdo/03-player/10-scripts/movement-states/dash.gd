@@ -18,11 +18,6 @@ func enter() -> void:
 	# Обновляем facing_direction, чтобы анимация соответствовала
 	player.facing_direction = dash_direction
 	
-	# Включаем неуязвимость (если есть HealthComponent)
-	#var health = player.get_node_or_null("HealthComponent")
-	#if health != null:
-	#	health.set_invulnerable(true)
-	
 	player.sprite.modulate = Color(0.5, 0.8, 1.0, 0.7)
 	player.update_animation("run_")
 
@@ -39,9 +34,5 @@ func physics_update(delta: float) -> void:
 			transitioned.emit("IdleState")
 
 func exit() -> void:
-	#var health = player.get_node_or_null("HealthComponent")
-	#if health != null:
-	#	health.set_invulnerable(false)
-	
 	player.sprite.modulate = Color(1, 1, 1, 1)
 	player.dash_cooldown_timer = player.dash_cooldown_duration

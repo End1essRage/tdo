@@ -18,10 +18,7 @@ func physics_update(delta: float) -> void:
 	player.move_and_slide()
 	
 	var anim_prefix = "walk_"
-	if player.shooting_component.is_shooting:
-		anim_prefix = "walk_shoot_"
 	
 	player.update_animation(anim_prefix)
-
 func exit() -> void:
 	pass
