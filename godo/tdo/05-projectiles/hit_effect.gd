@@ -5,24 +5,19 @@ func setup_impact(frames: SpriteFrames, anim_name: String = "default", anim_spee
 		queue_free()
 		return
 
-	# Дублируем ресурс, чтобы не менять оригинальный файл на диске/в памяти
-	# (вдруг другие пули используют этот же SpriteFrames с другими настройками)
-	var local_frames = frames.duplicate()
+	# frames УЖЕ настроен (loop = false, скорость) в Projectile._spawn_hit_effect()
+	sprite_frames = frames
 	
 	# Проверяем, есть ли нужная анимация
-	if not local_frames.has_animation(anim_name):
-		var available = local_frames.get_animation_names()
+	if not sprite_frames.has_animation(anim_name):
+		var available = sprite_frames.get_animation_names()
 		if not available.is_empty():
 			anim_name = available[0]
 		else:
 			queue_free()
 			return
 
-	# Переопределяем настройки анимации
-	local_frames.set_animation_loop(anim_name, false) # Отключаем цикл
-	local_frames.set_animation_speed(anim_name, anim_speed) # Меняем скорость
-	
-	sprite_frames = local_frames
+	# Подключаем сигнал окончания анимации
 	animation_finished.connect(queue_free)
 	
 	# Запускаем

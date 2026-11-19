@@ -1,24 +1,7 @@
 extends Node2D
 class_name PlayerBuilder
 
-@export_group("Player Overrides")
-@export var custom_sprite_frames: SpriteFrames
-@export var player_speed: float = 100.0
-
-@export var shoot_slowdown_multiplier: float = 0.7
-
-@export_group("Dash")
-@export var max_dashes: int = 2  # Максимум зарядов
-@export var dash_recharge_time: float = 3.0  # Время восстановления одного заряда
-@export var player_dash_speed: float = 400.0
-@export var dash_duration: float = 0.3
-@export var dash_cooldown_duration: float = 0.5  # Минимальный интервал между дэшами
-
-@export_group("UI Palette")
-@export var ui_palette: UIPalette  # Создай ресурс UIPalette и перетащи сюда
-
-@export_group("Projectiles")
-@export var bullet_scene: PackedScene  # Перетащи сюда .tscn файл пули
+@export var config: GameConfig
 
 const PLAYER_SCRIPT = preload("res://03-player/10-scripts/player.gd")
 const INPUT_SCRIPT = preload("res://03-player/10-scripts/input_component.gd")
@@ -51,23 +34,23 @@ func build_player() -> CharacterBody2D:
 	player.name = "Player"
 	player.set_script(PLAYER_SCRIPT)
 	
-	player.walk_speed = player_speed
-	player.dash_speed = player_dash_speed
-	player.dash_cooldown_duration = dash_cooldown_duration
-	player.shoot_slowdown_multiplier = shoot_slowdown_multiplier # НОВОЕ!
+	player.walk_speed = config.player_speed
+	player.dash_speed = config.player_dash_speed
+	player.dash_cooldown_duration = config.dash_cooldown_duration
+	player.shoot_slowdown_multiplier = config.shoot_slowdown_multiplier # НОВОЕ!
 	player.motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
 	
-	player.max_dashes = max_dashes
-	player.dash_recharge_time = dash_recharge_time
-	player.dash_cooldown_duration = dash_cooldown_duration
+	player.max_dashes = config.max_dashes
+	player.dash_recharge_time = config.dash_recharge_time
+	player.dash_cooldown_duration = config.dash_cooldown_duration
 	
 	player.add_to_group("player")
 	
 	var sprite = AnimatedSprite2D.new()
 	sprite.name = "AnimatedSprite2D"
 	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	if custom_sprite_frames:
-		sprite.sprite_frames = custom_sprite_frames
+	if config.custom_sprite_frames:
+		sprite.sprite_frames = config.custom_sprite_frames
 	player.add_child(sprite)
 	
 	var collision = CollisionShape2D.new()
@@ -89,7 +72,7 @@ func build_player() -> CharacterBody2D:
 	
 	_create_state(movement_state_machine, "IdleState", IDLE_STATE_SCRIPT)
 	_create_state(movement_state_machine, "WalkState", WALK_STATE_SCRIPT)
-	_create_state(movement_state_machine, "DashState", DASH_STATE_SCRIPT, {"dash_duration": dash_duration})
+	_create_state(movement_state_machine, "DashState", DASH_STATE_SCRIPT, {"dash_duration": config.dash_duration})
 	
 	#_create_component(player, "ShootingComponent", SHOOTING_COMPONENT_SCRIPT)
 	_create_component(player, "CastComponent", CAST_COMPONENT_SCRIPT)
@@ -107,15 +90,15 @@ func build_player() -> CharacterBody2D:
 	var player_ui = Node2D.new()
 	player_ui.name = "PlayerUI"
 	player_ui.set_script(PLAYER_UI_SCRIPT)
-	if ui_palette:
-		player_ui.palette = ui_palette  # Передаём палитру в скрипт
+	if config.ui_palette:
+		player_ui.palette = config.ui_palette  # Передаём палитру в скрипт
 	player.add_child(player_ui)
 	
 	var dash_ui = Node2D.new()
 	dash_ui.name = "DashChargesUI"
 	dash_ui.set_script(DASH_CHARGES_UI_SCRIPT)
-	if ui_palette:
-		dash_ui.palette = ui_palette  # Передаём палитру в скрипт
+	if config.ui_palette:
+		dash_ui.palette = config.ui_palette  # Передаём палитру в скрипт
 	player.add_child(dash_ui)
 	
 	# --- НОВОЕ: Создаём фабрику снарядов ---
@@ -125,9 +108,9 @@ func build_player() -> CharacterBody2D:
 	player.add_child(projectile_builder)
 
 	# Передаём сцену пули из инспектора (если задана)
-	if bullet_scene != null:
+	if config.bullet_scene != null:
 		print("bullet_scene != null")
-		projectile_builder.set_bullet_scene(bullet_scene)
+		projectile_builder.set_bullet_scene(config.bullet_scene)
 	else:
 		print("PlayerBuilder: Bullet Scene не назначен, используется дефолтная пуля")
 
@@ -140,6 +123,17 @@ func build_player() -> CharacterBody2D:
 	# Связываем ShootingComponent с ProjectileBuilder
 	shooting_comp.projectile_builder = projectile_builder
 	
+	if config:
+		var impact_path = ""
+		if config.current_impact_index < config.impact_effects.size():
+			impact_path = config.impact_effects[config.current_impact_index]
+		
+		shooting_comp.impact_frames_path = impact_path
+		shooting_comp.impact_anim_speed = config.impact_anim_speed
+		shooting_comp.damage = config.projectile_damage
+		shooting_comp.bullet_speed = config.projectile_speed
+		shooting_comp.bullet_lifetime = config.projectile_lifetime
+		
 	return player
 
 func _create_state(parent: Node, state_name: String, script_path: Script, overrides: Dictionary = {}) -> void:

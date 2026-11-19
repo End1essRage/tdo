@@ -8,14 +8,13 @@ class_name Projectile
 @export var pierce: int = 0
 
 @export_group("Hit Effect")
-# Вместо SpriteFrames теперь используем путь к файлу
 @export var impact_frames_path: String = "res://10-assets/20-sprite-frames/17-hits/1.tres"
 @export var impact_anim_name: String = "default"
 @export var impact_anim_speed: float = 15.0
 
 const HIT_EFFECT_SCRIPT = preload("res://05-projectiles/hit_effect.gd")
 
-# Кэш загруженных ресурсов (общий для всех пуль)
+# Кэш настроенных SpriteFrames. Ключ: "путь_к_файлу_скорость"
 static var _frames_cache: Dictionary = {}
 
 var direction: Vector2 = Vector2.RIGHT
@@ -61,16 +60,40 @@ func _spawn_hit_effect(target: Node) -> void:
 	if impact_frames_path == "":
 		return
 
-	var frames: SpriteFrames = _frames_cache.get(impact_frames_path)
+	# Формируем уникальный ключ для кэша (путь + скорость)
+	var cache_key = impact_frames_path + "_" + str(impact_anim_speed)
+	
+	var frames: SpriteFrames = _frames_cache.get(cache_key)
 	if frames == null:
+		# Загружаем оригинал
 		if not ResourceLoader.exists(impact_frames_path):
 			push_error("Файл эффекта не найден: " + impact_frames_path)
 			return
-		frames = load(impact_frames_path) as SpriteFrames
-		if frames == null:
+			
+		var original = load(impact_frames_path) as SpriteFrames
+		if original == null:
 			push_error("Указанный файл не является SpriteFrames: " + impact_frames_path)
 			return
-		_frames_cache[impact_frames_path] = frames
+			
+		# Дублируем ОДИН раз и настраиваем
+		frames = original.duplicate()
+		
+		# Проверяем и настраиваем анимацию
+		if frames.has_animation(impact_anim_name):
+			frames.set_animation_loop(impact_anim_name, false)
+			frames.set_animation_speed(impact_anim_name, impact_anim_speed)
+		else:
+			var available = frames.get_animation_names()
+			if not available.is_empty():
+				frames.set_animation_loop(available[0], false)
+				frames.set_animation_speed(available[0], impact_anim_speed)
+				# Запоминаем, что нужно играть первую доступную
+				# (это можно обработать в hit_effect.gd, но проще передать правильное имя)
+				# Но так как мы передаем anim_name дальше, лучше не менять его, 
+				# а в hit_effect.gd сделать fallback.
+		
+		# Сохраняем в кэш
+		_frames_cache[cache_key] = frames
 
 	# Создаем узел
 	var effect := AnimatedSprite2D.new()
@@ -92,5 +115,5 @@ func _spawn_hit_effect(target: Node) -> void:
 		get_tree().current_scene.add_child(effect)
 		effect.global_position = global_position
 
-	# 3. Запускаем с переопределением скорости
+	# Передаем УЖЕ настроенный кэшированный frames
 	effect.setup_impact(frames, impact_anim_name, impact_anim_speed)
