@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://suj6mdanjs1g"]
+
+[ext_resource type="SpriteFrames" uid="uid://dn4v8olovqorq" path="res://10-assets/20-sprite-frames/15-shots/waveform.tres" id="1_c5rae"]
+[ext_resource type="Script" uid="uid://ksxa5omlfvns" path="res://05-projectiles/projectile.gd" id="1_t5vrj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c5rae"]
+size = Vector2(16.5, 7.5)
+
+[node name="bullet_waveform" type="Area2D" unique_id=1812625520]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("1_t5vrj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=592265019]
+texture_filter = 3
+scale = Vector2(0.53125, 0.53125)
+sprite_frames = ExtResource("1_c5rae")
+autoplay = "default"
+frame = 3
+frame_progress = 0.5564729
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2085267032]
+position = Vector2(12.25, 0)
+shape = SubResource("RectangleShape2D_c5rae")

@@ -31,12 +31,12 @@ func try_cast(aim_direction: Vector2) -> bool:
 	cast_performed.emit()
 	
 	var spawn_pos := player.global_position + aim_direction.normalized() * spawn_offset
-	var fireball := PROJECTILE_BUILDER.spawn_fireball(spawn_pos, aim_direction, damage, projectile_speed, projectile_lifetime)
+	#var fireball := PROJECTILE_BUILDER.spawn_fireball(spawn_pos, aim_direction, damage, projectile_speed, projectile_lifetime)
 	
 	# Collision layers для заклинания
-	fireball.collision_layer = 32   # слой "player_spells"
-	fireball.collision_mask = 4     # слой "enemies/hurtboxes"
+	#fireball.collision_layer = 32   # слой "player_spells"
+	#fireball.collision_mask = 4     # слой "enemies/hurtboxes"
 	
-	get_tree().current_scene.add_child(fireball)
+	#get_tree().current_scene.add_child(fireball)
 	
 	return true

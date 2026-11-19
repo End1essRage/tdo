@@ -17,7 +17,8 @@ class_name PlayerBuilder
 @export_group("UI Palette")
 @export var ui_palette: UIPalette  # Создай ресурс UIPalette и перетащи сюда
 
-
+@export_group("Projectiles")
+@export var bullet_scene: PackedScene  # Перетащи сюда .tscn файл пули
 
 const PLAYER_SCRIPT = preload("res://03-player/10-scripts/player.gd")
 const INPUT_SCRIPT = preload("res://03-player/10-scripts/input_component.gd")
@@ -37,6 +38,7 @@ const CURSOR_COMPONENT_SCRIPT = preload("res://12-cursor/cursor_component.gd")
 const CAST_COMPONENT_SCRIPT = preload("res://03-player/10-scripts/components/cast_component.gd")
 
 const DASH_CHARGES_UI_SCRIPT = preload("res://20-ui/dash_charges_ui.gd")
+const PROJECTILE_BUILDER_SCRIPT = preload("res://05-projectiles/projectile_builder.gd")
 
 func _ready() -> void:
 	print("--- Сборка игрока начата ---")
@@ -89,7 +91,7 @@ func build_player() -> CharacterBody2D:
 	_create_state(movement_state_machine, "WalkState", WALK_STATE_SCRIPT)
 	_create_state(movement_state_machine, "DashState", DASH_STATE_SCRIPT, {"dash_duration": dash_duration})
 	
-	_create_component(player, "ShootingComponent", SHOOTING_COMPONENT_SCRIPT)
+	#_create_component(player, "ShootingComponent", SHOOTING_COMPONENT_SCRIPT)
 	_create_component(player, "CastComponent", CAST_COMPONENT_SCRIPT)
 	_create_component(player, "ReloadComponent", RELOAD_COMPONENT_SCRIPT)
 	_create_component(player, "HealthComponent", HEALTH_COMPONENT_SCRIPT)
@@ -115,6 +117,28 @@ func build_player() -> CharacterBody2D:
 	if ui_palette:
 		dash_ui.palette = ui_palette  # Передаём палитру в скрипт
 	player.add_child(dash_ui)
+	
+	# --- НОВОЕ: Создаём фабрику снарядов ---
+	var projectile_builder = Node.new()
+	projectile_builder.name = "ProjectileBuilder"
+	projectile_builder.set_script(PROJECTILE_BUILDER_SCRIPT)
+	player.add_child(projectile_builder)
+
+	# Передаём сцену пули из инспектора (если задана)
+	if bullet_scene != null:
+		print("bullet_scene != null")
+		projectile_builder.set_bullet_scene(bullet_scene)
+	else:
+		print("PlayerBuilder: Bullet Scene не назначен, используется дефолтная пуля")
+
+	# --- НОВОЕ: Создаём компонент стрельбы ---
+	var shooting_comp = Node.new()
+	shooting_comp.name = "ShootingComponent"
+	shooting_comp.set_script(SHOOTING_COMPONENT_SCRIPT)
+	player.add_child(shooting_comp)
+
+	# Связываем ShootingComponent с ProjectileBuilder
+	shooting_comp.projectile_builder = projectile_builder
 	
 	return player
 

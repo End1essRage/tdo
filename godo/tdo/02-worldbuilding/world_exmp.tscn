@@ -5,6 +5,7 @@
 [ext_resource type="SpriteFrames" uid="uid://fm2xlengmhnp" path="res://03-player/00-animations/player_sprite_frames.tres" id="2_5aqqx"]
 [ext_resource type="Script" uid="uid://dmyt25fjj7rk1" path="res://03-player/10-scripts/camera.gd" id="4_1fw4u"]
 [ext_resource type="Script" uid="uid://def6elfiym6qv" path="res://20-ui/ui-palette.gd" id="4_56g1n"]
+[ext_resource type="PackedScene" uid="uid://suj6mdanjs1g" path="res://05-projectiles/bullet_waveform.tscn" id="5_2kiji"]
 [ext_resource type="Script" uid="uid://c77wjb05fkhht" path="res://04-enemies/00-dummy/dummy_builder.gd" id="5_q0qcs"]
 [ext_resource type="SpriteFrames" uid="uid://dq86rqtwgrryd" path="res://04-enemies/00-dummy/sprite_frames.tres" id="6_rt0ih"]
 
@@ -35,15 +36,16 @@ position = Vector2(129, 11)
 custom_sprite_frames = ExtResource("2_5aqqx")
 player_speed = 40.0
 max_dashes = 5
-player_dash_speed = 500.0
-dash_duration = 0.13
-dash_cooldown_duration = 1.8
+player_dash_speed = 450.0
+dash_duration = 0.17
 ui_palette = SubResource("Resource_1fw4u")
+bullet_scene = ExtResource("5_2kiji")
+
+[node name="Camera2D" type="Camera2D" parent="player_builder" unique_id=937849865]
+position = Vector2(-129, -11)
+script = ExtResource("4_1fw4u")
 
 [node name="dummy_builder" type="Node2D" parent="." unique_id=918038521]
 position = Vector2(371, -27)
 script = ExtResource("5_q0qcs")
 custom_sprite_frames = ExtResource("6_rt0ih")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=937849865]
-script = ExtResource("4_1fw4u")

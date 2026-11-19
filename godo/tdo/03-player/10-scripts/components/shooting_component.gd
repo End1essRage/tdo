@@ -13,6 +13,7 @@ var fire_cooldown: float = 0.0
 @export var spawn_offset: float = 12.0  # Отступ от центра игрока
 
 var current_ammo: int
+var projectile_builder: Node
 
 signal shot_fired
 signal ammo_changed(current: int, maximum: int)
@@ -34,6 +35,9 @@ func try_shoot(aim_direction: Vector2) -> bool:
 		return false
 	if aim_direction == Vector2.ZERO:
 		return false
+		
+	if projectile_builder == null:
+		return false
 	
 	is_shooting = true
 	fire_cooldown = fire_rate
@@ -43,14 +47,30 @@ func try_shoot(aim_direction: Vector2) -> bool:
 	
 	# Спавн пули
 	var spawn_pos := player.global_position + aim_direction.normalized() * spawn_offset
-	var bullet := PROJECTILE_BUILDER.spawn_bullet(spawn_pos, aim_direction, damage, bullet_speed, bullet_lifetime)
+	var bullet := projectile_builder.spawn_bullet(
+		spawn_pos,
+		aim_direction,
+		damage,
+		bullet_speed,
+		bullet_lifetime
+	) as Projectile
 	
 	# Настройка collision layers: пуля игрока
 	bullet.collision_layer = 2    # слой 2 = player_projectiles
 	bullet.collision_mask = 8     # слой 4 = enemies (бит 4 = 8)
 	
-	# Добавляем в текущую сцену
-	get_tree().current_scene.add_child(bullet)
+	if bullet != null:
+		# ВАЖНО: добавляем в текущую сцену, а НЕ в игрока!
+		# 1. Сначала добавляем в дерево (чтобы узел получил родителя)
+		get_tree().current_scene.add_child(bullet)
+		# 2. ТОЛЬКО ПОТОМ ставим глобальную позицию
+		bullet.global_position = spawn_pos
+		# 3. Направляем
+		bullet.direction = aim_direction.normalized()
+		bullet.rotation = aim_direction.normalized().angle()
+		print("🔫 Пуля создана в позиции: ", bullet.global_position, " направление: ", bullet.direction)
+	else:
+		print("❌ Пуля НЕ создана!")
 	
 	return true
 
