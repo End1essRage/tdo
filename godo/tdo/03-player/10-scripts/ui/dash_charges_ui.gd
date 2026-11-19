@@ -9,13 +9,15 @@ var player: Player
 @export var charge_spacing: float = 2.0
 @export var offset_y: float = -38.0
 
-# --- ПАЛИТРА ЦВЕТОВ ---
-@export_group("Colors")
-@export var color_empty: Color = Color(0.2, 0.2, 0.2)
-@export var color_full: Color = Color.CYAN
-@export var color_charging: Color = Color(0.3, 0.7, 0.9)
-@export var color_no_charges_bg: Color = Color(0.5, 0.1, 0.1, 0.6)
-@export var color_normal_bg: Color = Color(0, 0, 0, 0.3)
+# --- ПАЛИТРА (задаётся из PlayerBuilder) ---
+var palette: UIPalette
+
+# --- FALLBACK ЦВЕТА ---
+var color_empty: Color = Color(0.2, 0.2, 0.2)
+var color_full: Color = Color.CYAN
+var color_charging: Color = Color(0.3, 0.7, 0.9)
+var color_no_charges_bg: Color = Color(0.5, 0.1, 0.1, 0.6)
+var color_normal_bg: Color = Color(0, 0, 0, 0.3)
 
 # --- ВНУТРЕННИЕ УЗЛЫ ---
 var charges_container: HBoxContainer
@@ -49,7 +51,17 @@ func _ready() -> void:
 	if player == null:
 		push_error("DashChargesUI: родитель не является Player!")
 		return
+	_apply_palette()
 	_build_ui()
+
+# --- ПРИМЕНЯЕМ ЦВЕТА ИЗ ПАЛИТРЫ ---
+func _apply_palette() -> void:
+	if palette:
+		color_empty = palette.color_dash_empty
+		color_full = palette.color_dash_full
+		color_charging = palette.color_dash_charging
+		color_no_charges_bg = palette.color_dash_no_charges_bg
+		color_normal_bg = palette.color_dash_normal_bg
 
 func _build_ui() -> void:
 	background = ColorRect.new()

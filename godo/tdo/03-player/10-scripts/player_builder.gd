@@ -11,6 +11,9 @@ class_name PlayerBuilder
 @export var dash_duration: float = 0.3
 @export var shoot_slowdown_multiplier: float = 0.7
 
+@export_group("UI Palette")
+@export var ui_palette: UIPalette  # Создай ресурс UIPalette и перетащи сюда
+
 @export_group("Dash Charges")
 @export var max_dashes: int = 2  # Максимум зарядов
 @export var dash_recharge_time: float = 3.0  # Время восстановления одного заряда
@@ -92,16 +95,19 @@ func build_player() -> CharacterBody2D:
 	_create_component(player, "DamageFlashComponent", DAMAGE_FLASH_COMPONENT_SCRIPT)
 	_create_component(player, "StatusEffectManager", STATUS_EFFECT_MANAGER_SCRIPT)
 	
-	# UI над головой
+	# --- Инстансим UI  ---
 	var player_ui = Node2D.new()
 	player_ui.name = "PlayerUI"
 	player_ui.set_script(PLAYER_UI_SCRIPT)
+	if ui_palette:
+		player_ui.palette = ui_palette  # Передаём палитру в скрипт
 	player.add_child(player_ui)
 	
-	# --- НОВОЕ: UI для зарядов дэша ---
 	var dash_ui = Node2D.new()
 	dash_ui.name = "DashChargesUI"
 	dash_ui.set_script(DASH_CHARGES_UI_SCRIPT)
+	if ui_palette:
+		dash_ui.palette = ui_palette  # Передаём палитру в скрипт
 	player.add_child(dash_ui)
 	
 	return player
