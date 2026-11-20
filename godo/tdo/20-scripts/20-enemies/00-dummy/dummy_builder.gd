@@ -24,12 +24,12 @@ class_name DummyBuilder
 @export var bar_offset_y: float = -18.0
 @export var bar_always_visible: bool = true   # манекену удобно всегда видеть HP
 
-const DUMMY_SCRIPT = preload("res://04-enemies/00-dummy/dummy.gd")
-const HURTBOX_SCRIPT = preload("res://11-scripts/hurtbox.gd")
-const HEALTH_SCRIPT = preload("res://11-scripts/10-components/health_component.gd")
-const FLASH_SCRIPT = preload("res://11-scripts/10-components/damage_flash_component.gd")
-const BAR_SCRIPT = preload("res://20-ui/enemy_health_bar.gd")
-const NUMBERS_SCRIPT = preload("res://20-ui/damage_numbers_component.gd")
+const DUMMY_SCRIPT = preload("res://20-scripts/20-enemies/00-dummy/dummy.gd")
+const HURTBOX_SCRIPT = preload("res://20-scripts/hurtbox.gd")
+const HEALTH_SCRIPT = preload("res://20-scripts/health_component.gd")
+const FLASH_SCRIPT = preload("res://20-scripts/damage_flash_component.gd")
+const BAR_SCRIPT = preload("res://20-scripts/30-ui/enemy_health_bar.gd")
+const NUMBERS_SCRIPT = preload("res://20-scripts/30-ui/damage_numbers_component.gd")
 
 func _ready() -> void:
 	add_child(build_dummy())

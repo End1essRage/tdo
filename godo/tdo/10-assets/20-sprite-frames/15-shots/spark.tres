@@ -1,10 +1,10 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://dk4mcdlwackap"]
 
-[ext_resource type="Texture2D" uid="uid://d0rccp7ij4gas" path="res://05-row-assets/Warped shooting fx files/Warped shooting fx files/Assets/Pixelart/spark/sprites/spark-preview1.png" id="1_1qu3t"]
-[ext_resource type="Texture2D" uid="uid://bfcub566qp4ac" path="res://05-row-assets/Warped shooting fx files/Warped shooting fx files/Assets/Pixelart/spark/sprites/spark-preview2.png" id="2_jymaf"]
-[ext_resource type="Texture2D" uid="uid://du318be8oo4gb" path="res://05-row-assets/Warped shooting fx files/Warped shooting fx files/Assets/Pixelart/spark/sprites/spark-preview3.png" id="3_bjrx5"]
-[ext_resource type="Texture2D" uid="uid://c2rthh4n20gnv" path="res://05-row-assets/Warped shooting fx files/Warped shooting fx files/Assets/Pixelart/spark/sprites/spark-preview4.png" id="4_7ejoe"]
-[ext_resource type="Texture2D" uid="uid://buy40xo70twus" path="res://05-row-assets/Warped shooting fx files/Warped shooting fx files/Assets/Pixelart/spark/sprites/spark-preview5.png" id="5_0w3j4"]
+[ext_resource type="Texture2D" uid="uid://d0rccp7ij4gas" path="res://01-row-assets/Warped shooting fx files/Warped shooting fx files/Assets/Pixelart/spark/sprites/spark-preview1.png" id="1_1qu3t"]
+[ext_resource type="Texture2D" uid="uid://bfcub566qp4ac" path="res://01-row-assets/Warped shooting fx files/Warped shooting fx files/Assets/Pixelart/spark/sprites/spark-preview2.png" id="2_jymaf"]
+[ext_resource type="Texture2D" uid="uid://du318be8oo4gb" path="res://01-row-assets/Warped shooting fx files/Warped shooting fx files/Assets/Pixelart/spark/sprites/spark-preview3.png" id="3_bjrx5"]
+[ext_resource type="Texture2D" uid="uid://c2rthh4n20gnv" path="res://01-row-assets/Warped shooting fx files/Warped shooting fx files/Assets/Pixelart/spark/sprites/spark-preview4.png" id="4_7ejoe"]
+[ext_resource type="Texture2D" uid="uid://buy40xo70twus" path="res://01-row-assets/Warped shooting fx files/Warped shooting fx files/Assets/Pixelart/spark/sprites/spark-preview5.png" id="5_0w3j4"]
 
 [resource]
 animations = [{

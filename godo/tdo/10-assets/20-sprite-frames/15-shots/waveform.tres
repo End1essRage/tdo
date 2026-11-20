@@ -1,9 +1,9 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://dn4v8olovqorq"]
 
-[ext_resource type="Texture2D" uid="uid://cholsn61an37r" path="res://05-row-assets/Warped shooting fx files/Warped shooting fx files/Assets/Pixelart/waveform/sprites/waveform1.png" id="1_h75ga"]
-[ext_resource type="Texture2D" uid="uid://dvtw7mixhjl0q" path="res://05-row-assets/Warped shooting fx files/Warped shooting fx files/Assets/Pixelart/waveform/sprites/waveform2.png" id="2_w2ed6"]
-[ext_resource type="Texture2D" uid="uid://uuml4je3damv" path="res://05-row-assets/Warped shooting fx files/Warped shooting fx files/Assets/Pixelart/waveform/sprites/waveform3.png" id="3_8w80h"]
-[ext_resource type="Texture2D" uid="uid://betg8ihpin3y4" path="res://05-row-assets/Warped shooting fx files/Warped shooting fx files/Assets/Pixelart/waveform/sprites/waveform4.png" id="4_7wjbj"]
+[ext_resource type="Texture2D" uid="uid://cholsn61an37r" path="res://01-row-assets/Warped shooting fx files/Warped shooting fx files/Assets/Pixelart/waveform/sprites/waveform1.png" id="1_h75ga"]
+[ext_resource type="Texture2D" uid="uid://dvtw7mixhjl0q" path="res://01-row-assets/Warped shooting fx files/Warped shooting fx files/Assets/Pixelart/waveform/sprites/waveform2.png" id="2_w2ed6"]
+[ext_resource type="Texture2D" uid="uid://uuml4je3damv" path="res://01-row-assets/Warped shooting fx files/Warped shooting fx files/Assets/Pixelart/waveform/sprites/waveform3.png" id="3_8w80h"]
+[ext_resource type="Texture2D" uid="uid://betg8ihpin3y4" path="res://01-row-assets/Warped shooting fx files/Warped shooting fx files/Assets/Pixelart/waveform/sprites/waveform4.png" id="4_7wjbj"]
 
 [resource]
 animations = [{

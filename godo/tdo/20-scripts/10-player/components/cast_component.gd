@@ -12,7 +12,7 @@ var cast_cooldown: float = 0.0
 
 signal cast_performed
 
-const PROJECTILE_BUILDER = preload("res://05-projectiles/projectile_builder.gd")
+const PROJECTILE_BUILDER = preload("res://20-scripts/15-projectiles/projectile_builder.gd")
 
 func _ready() -> void:
 	player = get_parent() as Player

@@ -1,7 +1,7 @@
 extends Node
 class_name ProjectileBuilder
 
-const PROJECTILE_SCRIPT = preload("res://05-projectiles/projectile.gd")
+const PROJECTILE_SCRIPT = preload("res://20-scripts/15-projectiles/projectile.gd")
 
 # Текущая сцена пули (может меняться в рантайме)
 var current_bullet_scene: PackedScene = null

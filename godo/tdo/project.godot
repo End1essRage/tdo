@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="tdo"
-run/main_scene="uid://bugraihldgjf6"
+run/main_scene="uid://lhegs134je0v"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 

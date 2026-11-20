@@ -1,8 +1,8 @@
 [gd_resource type="TileSet" format=3 uid="uid://dfbe02wuujxj5"]
 
-[ext_resource type="Texture2D" uid="uid://r1kxb4efiu5e" path="res://05-row-assets/summer_plains_v1.0_standard/tiles.png" id="1_45ddf"]
-[ext_resource type="Texture2D" uid="uid://dim0mginqdtcr" path="res://05-row-assets/summer_plains_v1.0_standard/assets.png" id="2_yw5nm"]
-[ext_resource type="Texture2D" uid="uid://ce7i2x52kxihe" path="res://05-row-assets/summer_plains_v1.0_standard/tiles_new.png" id="3_7dlk3"]
+[ext_resource type="Texture2D" uid="uid://r1kxb4efiu5e" path="res://01-row-assets/summer_plains_v1.0_standard/tiles.png" id="1_45ddf"]
+[ext_resource type="Texture2D" uid="uid://dim0mginqdtcr" path="res://01-row-assets/summer_plains_v1.0_standard/assets.png" id="2_yw5nm"]
+[ext_resource type="Texture2D" uid="uid://ce7i2x52kxihe" path="res://01-row-assets/summer_plains_v1.0_standard/tiles_new.png" id="3_7dlk3"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_3vjjb"]
 tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 1, 1, 65536, 0, 65537, 65536, 1)

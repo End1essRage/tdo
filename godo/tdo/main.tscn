@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://lhegs134je0v"]
+
+[ext_resource type="PackedScene" uid="uid://bugraihldgjf6" path="res://02-worldbuilding/world_exmp.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://bob8qtx6arip5" path="res://02-worldbuilding/dummy_builder.tscn" id="2_lquwl"]
+[ext_resource type="PackedScene" uid="uid://c1c16u0svoe3u" path="res://02-worldbuilding/player_builder.tscn" id="3_7mycd"]
+[ext_resource type="Resource" uid="uid://cobaktqedr6on" path="res://00-config/default.tres" id="4_272bh"]
+
+[node name="main" type="Node2D" unique_id=1189327276]
+
+[node name="world" parent="." unique_id=1845947297 instance=ExtResource("1_ig7tw")]
+
+[node name="dummy_builder" parent="." unique_id=377554883 instance=ExtResource("2_lquwl")]
+position = Vector2(805, 347)
+hurtbox_size = Vector2(14, 14)
+
+[node name="player_builder" parent="." unique_id=257400564 instance=ExtResource("3_7mycd")]
+position = Vector2(907, 125)
+config = ExtResource("4_272bh")

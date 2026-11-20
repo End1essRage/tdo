@@ -3,27 +3,33 @@ class_name PlayerBuilder
 
 @export var config: GameConfig
 
-const PLAYER_SCRIPT = preload("res://03-player/10-scripts/player.gd")
-const INPUT_SCRIPT = preload("res://03-player/10-scripts/input_component.gd")
-const MOVEMENT_STATE_MACHINE_SCRIPT = preload("res://03-player/10-scripts/movement_fsm.gd")
-const IDLE_STATE_SCRIPT = preload("res://03-player/10-scripts/movement-states/idle.gd")
-const WALK_STATE_SCRIPT = preload("res://03-player/10-scripts/movement-states/walk.gd")
-const DASH_STATE_SCRIPT = preload("res://03-player/10-scripts/movement-states/dash.gd")
+const PLAYER_SCRIPT = preload("res://20-scripts/10-player/player.gd")
+const INPUT_SCRIPT = preload("res://20-scripts/10-player/input_component.gd")
+const MOVEMENT_STATE_MACHINE_SCRIPT = preload("res://20-scripts/10-player/movement_fsm.gd")
+const IDLE_STATE_SCRIPT = preload("res://20-scripts/10-player/movement-states/idle.gd")
+const WALK_STATE_SCRIPT = preload("res://20-scripts/10-player/movement-states/walk.gd")
+const DASH_STATE_SCRIPT = preload("res://20-scripts/10-player/movement-states/dash.gd")
 
-const SHOOTING_COMPONENT_SCRIPT = preload("res://03-player/10-scripts/components/shooting_component.gd")
-const RELOAD_COMPONENT_SCRIPT = preload("res://03-player/10-scripts/components/reload_component.gd")
-const HEALTH_COMPONENT_SCRIPT = preload("res://11-scripts/10-components/health_component.gd")
-const DAMAGE_FLASH_COMPONENT_SCRIPT = preload("res://11-scripts/10-components/damage_flash_component.gd")
-const STATUS_EFFECT_MANAGER_SCRIPT = preload("res://03-player/10-scripts/status-effects/manager.gd")
-const PLAYER_UI_SCRIPT = preload("res://20-ui/player_ui.gd")
+const SHOOTING_COMPONENT_SCRIPT = preload("res://20-scripts/10-player/components/shooting_component.gd")
+const RELOAD_COMPONENT_SCRIPT = preload("res://20-scripts/10-player/components/reload_component.gd")
+const HEALTH_COMPONENT_SCRIPT = preload("res://20-scripts/health_component.gd")
+const DAMAGE_FLASH_COMPONENT_SCRIPT = preload("res://20-scripts/damage_flash_component.gd")
+const STATUS_EFFECT_MANAGER_SCRIPT = preload("res://20-scripts/10-player/status-effects/manager.gd")
+const PLAYER_UI_SCRIPT = preload("res://20-scripts/30-ui/player_ui.gd")
 
-const CURSOR_COMPONENT_SCRIPT = preload("res://12-cursor/cursor_component.gd")
-const CAST_COMPONENT_SCRIPT = preload("res://03-player/10-scripts/components/cast_component.gd")
+const CURSOR_COMPONENT_SCRIPT = preload("res://20-scripts/12-cursor/cursor_component.gd")
+const CAST_COMPONENT_SCRIPT = preload("res://20-scripts/10-player/components/cast_component.gd")
 
-const DASH_CHARGES_UI_SCRIPT = preload("res://20-ui/dash_charges_ui.gd")
-const PROJECTILE_BUILDER_SCRIPT = preload("res://05-projectiles/projectile_builder.gd")
+const DASH_CHARGES_UI_SCRIPT = preload("res://20-scripts/30-ui/dash_charges_ui.gd")
+const PROJECTILE_BUILDER_SCRIPT = preload("res://20-scripts/15-projectiles/projectile_builder.gd")
+
+const CAMERA_SCRIPT = preload("res://20-scripts/camera.gd")
+const DEFAULT_CONFIG = preload("res://00-config/default.tres")
 
 func _ready() -> void:
+	if config == null:
+		config = DEFAULT_CONFIG
+	
 	print("--- Сборка игрока начата ---")
 	var player = build_player()
 	add_child(player)
@@ -81,6 +87,13 @@ func build_player() -> CharacterBody2D:
 	_create_component(player, "DamageFlashComponent", DAMAGE_FLASH_COMPONENT_SCRIPT)
 	_create_component(player, "StatusEffectManager", STATUS_EFFECT_MANAGER_SCRIPT)
 	
+	# --- Камера  ---
+	var camera = Camera2D.new()
+	camera.name = "Camera2D"
+	camera.set_script(CAMERA_SCRIPT)
+	add_child(camera)
+	
+	# --- Курсор  ---
 	var cursor_component = Node2D.new()
 	cursor_component.name = "CursorComponent"
 	cursor_component.set_script(CURSOR_COMPONENT_SCRIPT)
@@ -101,7 +114,7 @@ func build_player() -> CharacterBody2D:
 		dash_ui.palette = config.ui_palette  # Передаём палитру в скрипт
 	player.add_child(dash_ui)
 	
-	# --- НОВОЕ: Создаём фабрику снарядов ---
+	# --- Создаём фабрику партиклов ---
 	var projectile_builder = Node.new()
 	projectile_builder.name = "ProjectileBuilder"
 	projectile_builder.set_script(PROJECTILE_BUILDER_SCRIPT)
@@ -114,7 +127,7 @@ func build_player() -> CharacterBody2D:
 	else:
 		print("PlayerBuilder: Bullet Scene не назначен, используется дефолтная пуля")
 
-	# --- НОВОЕ: Создаём компонент стрельбы ---
+	# --- Создаём компонент стрельбы ---
 	var shooting_comp = Node.new()
 	shooting_comp.name = "ShootingComponent"
 	shooting_comp.set_script(SHOOTING_COMPONENT_SCRIPT)

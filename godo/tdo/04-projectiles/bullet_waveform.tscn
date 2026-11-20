@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://suj6mdanjs1g"]
 
 [ext_resource type="SpriteFrames" uid="uid://dn4v8olovqorq" path="res://10-assets/20-sprite-frames/15-shots/waveform.tres" id="1_c5rae"]
-[ext_resource type="Script" uid="uid://ksxa5omlfvns" path="res://05-projectiles/projectile.gd" id="1_t5vrj"]
+[ext_resource type="Script" uid="uid://ksxa5omlfvns" path="res://20-scripts/15-projectiles/projectile.gd" id="1_t5vrj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c5rae"]
 size = Vector2(16.5, 7.5)

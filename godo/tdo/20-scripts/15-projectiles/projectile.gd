@@ -12,7 +12,7 @@ class_name Projectile
 @export var impact_anim_name: String = "default"
 @export var impact_anim_speed: float = 15.0
 
-const HIT_EFFECT_SCRIPT = preload("res://05-projectiles/hit_effect.gd")
+const HIT_EFFECT_SCRIPT = preload("res://20-scripts/15-projectiles/hit_effect.gd")
 
 # Кэш настроенных SpriteFrames. Ключ: "путь_к_файлу_скорость"
 static var _frames_cache: Dictionary = {}
