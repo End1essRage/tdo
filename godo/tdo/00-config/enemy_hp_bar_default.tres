@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("2_117sk")
+bar_size = Vector2(20, 3.5)
 hide_when_full = false
 palette = ExtResource("1_4uwmt")
 metadata/_custom_type_script = "uid://c1sprboqfvg3b"

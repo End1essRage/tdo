@@ -6,7 +6,7 @@ var cfg: EnemyHpBarConfig
 var color_hp: Color = Color(0.85, 0.2, 0.25)
 var color_chip: Color = Color(1, 0.85, 0.4)
 var color_shield: Color = Color(0.45, 0.7, 1.0)
-var color_bg: Color = Color(0, 0, 0, 0.55)
+var color_bg: Color = Color(0, 0, 0, 0)
 
 var health: Node
 var bg: ColorRect
@@ -22,6 +22,7 @@ var _chip_timer: float = 0.0
 var _hide_timer: float = 0.0
 var _visible_target: float = 1.0
 
+
 func _ready() -> void:
 	_apply_palette()
 	_build()
@@ -34,67 +35,67 @@ func _ready() -> void:
 	health.hp_changed.connect(_on_hp_changed)
 	health.shield_changed.connect(_on_shield_changed)
 
-	_hp_ratio = float(health.hp) / max(1.0, float(health.max_hp))
+	_hp_ratio = _ratio(health.hp, health.max_hp)
 	_shown_ratio = _hp_ratio
 	_chip_ratio = _hp_ratio
 	if health.max_shield > 0:
-		_shield_ratio = float(health.shield) / float(health.max_shield)
+		_shield_ratio = _ratio(health.shield, health.max_shield)
 	_update_visibility_target()
 	modulate.a = _visible_target
 
+
+func _ratio(current: int, maximum: int) -> float:
+	return float(current) / max(1.0, float(maximum))
+
+
 func _apply_palette() -> void:
-	print("_apply_palette")
 	if cfg.palette == null:
-		print("cfg.palette == null")
 		return
 	color_hp = cfg.palette.color_enemy_hp
 	color_chip = cfg.palette.color_enemy_hp_chip
 	color_shield = cfg.palette.color_enemy_shield
 	color_bg = cfg.palette.color_enemy_bar_bg
 
+
 func _build() -> void:
 	var x := -cfg.bar_size.x * 0.5
+	bg         = _make_rect(color_bg,     cfg.bar_size + Vector2(2, 2), Vector2(x - 1, cfg.offset_y - 1))
+	chip       = _make_rect(color_chip,   cfg.bar_size,                 Vector2(x, cfg.offset_y))
+	fill       = _make_rect(color_hp,     cfg.bar_size,                 Vector2(x, cfg.offset_y))
+	shield_bar = _make_rect(color_shield, Vector2(0, cfg.shield_height), Vector2(x, cfg.offset_y - cfg.shield_height - 1))
 
-	bg = ColorRect.new()
-	bg.color = color_bg
-	bg.size = cfg.bar_size + Vector2(2, 2)
-	bg.position = Vector2(x - 1, cfg.offset_y - 1)
-	add_child(bg)
 
-	chip = ColorRect.new()
-	chip.color = color_chip
-	chip.size = cfg.bar_size
-	chip.position = Vector2(x, cfg.offset_y)
-	add_child(chip)
+func _make_rect(color: Color, size: Vector2, pos: Vector2) -> ColorRect:
+	var rect := ColorRect.new()
+	rect.color = color
+	rect.size = size
+	rect.position = pos
+	add_child(rect)
+	return rect
 
-	fill = ColorRect.new()
-	fill.color = color_hp
-	fill.size = cfg.bar_size
-	fill.position = Vector2(x, cfg.offset_y)
-	add_child(fill)
-
-	shield_bar = ColorRect.new()
-	shield_bar.color = color_shield
-	shield_bar.size = Vector2(0, cfg.shield_height)
-	shield_bar.position = Vector2(x, cfg.offset_y - cfg.shield_height - 1)
-	add_child(shield_bar)
 
 func _on_hp_changed(current: int, maximum: int) -> void:
-	_hp_ratio = float(current) / max(1.0, float(maximum))
+	_hp_ratio = _ratio(current, maximum)
 	_chip_timer = cfg.chip_delay
 	_hide_timer = cfg.hide_delay
 	_update_visibility_target()
 
+
 func _on_shield_changed(current: int, maximum: int) -> void:
-	_shield_ratio = float(current) / max(1.0, float(maximum))
+	_shield_ratio = _ratio(current, maximum)
 	_hide_timer = cfg.hide_delay
 	_update_visibility_target()
+
 
 func _update_visibility_target() -> void:
 	if not cfg.hide_when_full:
 		_visible_target = 1.0
 		return
-	_visible_target = 0.0 if _hp_ratio >= 0.999 and (_shield_ratio >= 0.999 or (health and health.max_shield == 0)) else 1.0
+	var full_hp := _hp_ratio >= 0.999
+	var full_shield: bool
+	full_shield = _shield_ratio >= 0.999 or health.max_shield == 0
+	_visible_target = 0.0 if full_hp and full_shield else 1.0
+
 
 func _process(delta: float) -> void:
 	if _hide_timer > 0.0:

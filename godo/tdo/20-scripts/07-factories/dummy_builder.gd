@@ -44,7 +44,7 @@ func build_dummy() -> CharacterBody2D:
 		if bar_cfg == null:
 			bar_cfg = EnemyHpBarConfig.new()
 			
-		var bar := ComponentFactory.attach_node2d(
+		ComponentFactory.attach_node2d(
 			dummy, "EnemyHealthBar", BAR_SCRIPT, {
 				"cfg": bar_cfg
 			}
