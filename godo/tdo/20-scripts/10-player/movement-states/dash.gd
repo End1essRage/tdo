@@ -25,7 +25,7 @@ func physics_update(delta: float) -> void:
 	dash_timer -= delta
 	
 	# --- КЛЮЧЕВОЕ: Летим строго в dash_direction, игнорируя инпут ---
-	player.velocity = dash_direction * player.dash_speed
+	player.velocity = dash_direction * player.dash_component.dash_speed
 	
 	if dash_timer <= 0:
 		if player.input_comp.direction != Vector2.ZERO:
@@ -35,4 +35,4 @@ func physics_update(delta: float) -> void:
 
 func exit() -> void:
 	player.sprite.modulate = Color(1, 1, 1, 1)
-	player.dash_cooldown_timer = player.dash_cooldown_duration
+	player.dash_component.start_cooldown()

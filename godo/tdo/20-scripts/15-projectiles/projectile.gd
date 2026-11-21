@@ -1,11 +1,7 @@
 extends Area2D
 class_name Projectile
 
-@export var speed: float = 400.0
-@export var lifetime: float = 2.0
-@export var damage: int = 10
-@export var is_crit: bool = false
-@export var pierce: int = 0
+@export var cfg: ProjectileConfig
 
 @export_group("Hit Effect")
 @export var impact_frames_path: String = "res://10-assets/20-sprite-frames/17-hits/1.tres"
@@ -14,7 +10,7 @@ class_name Projectile
 
 const HIT_EFFECT_SCRIPT = preload("res://20-scripts/15-projectiles/hit_effect.gd")
 
-# Кэш настроенных SpriteFrames. Ключ: "путь_к_файлу_скорость"
+# Кэш настроенных SpriteFrames
 static var _frames_cache: Dictionary = {}
 
 var direction: Vector2 = Vector2.RIGHT
@@ -27,9 +23,9 @@ func _ready() -> void:
 	area_entered.connect(_on_area_entered)
 
 func _physics_process(delta: float) -> void:
-	position += direction * speed * delta
+	position += direction * cfg.speed * delta
 	_timer += delta
-	if _timer >= lifetime:
+	if _timer >= cfg.lifetime:
 		queue_free()
 
 func _on_body_entered(body: Node) -> void:
@@ -45,16 +41,16 @@ func _apply_hit(target: Node) -> void:
 	_hit_entities.append(target)
 
 	if target.has_method("take_damage"):
-		target.take_damage(damage, is_crit)
+		target.take_damage(cfg.damage, cfg.is_crit)
 
 	_spawn_hit_effect(target)
 
-	if pierce <= 0:
+	if cfg.pierce <= 0:
 		set_deferred("monitoring", false)
 		set_deferred("monitorable", false)
 		queue_free()
 	else:
-		pierce -= 1
+		cfg.pierce -= 1
 
 func _spawn_hit_effect(target: Node) -> void:
 	if impact_frames_path == "":

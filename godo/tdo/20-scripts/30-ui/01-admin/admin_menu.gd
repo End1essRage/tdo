@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@export var config: GameConfig
+@export var config: PlayerConfig
 
 @onready var tab_container: TabContainer = $PanelContainer/TabContainer
 @onready var pause_vbox: VBoxContainer = $PanelContainer/TabContainer/PauseTab/VBoxContainer

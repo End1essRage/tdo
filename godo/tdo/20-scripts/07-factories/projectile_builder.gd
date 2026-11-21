@@ -22,13 +22,10 @@ func set_bullet_scene(scene: PackedScene) -> void:
 		current_bullet_scene = _default_scene
 
 # Спавн пули текущей сценой
-func spawn_bullet(from: Vector2, dir: Vector2, damage: int = 10, speed: float = 400.0, lifetime: float = 2.0, effect_path: String = "") -> Projectile:
+func spawn_bullet(from: Vector2, dir: Vector2, p_cfg:ProjectileConfig, effect_path: String = "") -> Projectile:
 	var p := current_bullet_scene.instantiate() as Projectile
-	
+	p.cfg = p_cfg
 	p.direction = dir.normalized()
-	p.damage = damage
-	p.speed = speed
-	p.lifetime = lifetime
 	
 	# Если передан путь к эффекту, задаем его
 	if effect_path != "":

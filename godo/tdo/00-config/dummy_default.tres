@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DummyConfig" format=3 uid="uid://cguyqnjxynsle"]
+
+[ext_resource type="Script" uid="uid://pl211ygfo26t" path="res://00-config/dummy_config.gd" id="1_ra7w6"]
+[ext_resource type="SpriteFrames" uid="uid://dq86rqtwgrryd" path="res://10-assets/20-sprite-frames/04-enemies/00-dummy/sprite_frames.tres" id="1_s5y4x"]
+
+[resource]
+script = ExtResource("1_ra7w6")
+custom_sprite_frames = ExtResource("1_s5y4x")
+metadata/_custom_type_script = "uid://pl211ygfo26t"

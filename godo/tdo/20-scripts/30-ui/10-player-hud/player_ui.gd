@@ -25,7 +25,7 @@ var color_reload: Color = Color.GREEN
 var color_reload_perfect: Color = Color.GOLD
 
 func _ready() -> void:
-	player = get_parent() as Player
+	player = get_parent().get_parent() as Player
 	_apply_palette()
 	_create_bars()
 	_connect_signals_safely()

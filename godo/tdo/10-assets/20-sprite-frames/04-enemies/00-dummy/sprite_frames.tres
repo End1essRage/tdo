@@ -2,6 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://c63fh2e0keal3" path="res://01-row-assets/Training Dummy Sprite Sheet.png" id="1_mce54"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_deosh"]
+atlas = ExtResource("1_mce54")
+region = Rect2(0, 0, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_co2rw"]
 atlas = ExtResource("1_mce54")
 region = Rect2(0, 64, 32, 32)
@@ -74,6 +78,14 @@ region = Rect2(96, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_deosh")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_co2rw")
 }, {
 "duration": 1.0,
@@ -97,7 +109,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xt0yn")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"take_damage_l",
 "speed": 7.0
 }, {
@@ -117,7 +129,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_w0pim")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"take_damage_m",
 "speed": 5.0
 }, {
@@ -134,7 +146,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7l2xj")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"take_damage_s",
 "speed": 5.0
 }]

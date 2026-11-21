@@ -1,17 +1,18 @@
 version: '3'
 
 tasks:
-  # Задача для сборки образа
-  build:
-    desc: "Собрать Docker-образ с GDShrapt"
-    cmds:
-      - docker compose build
-
-  # Основная задача для анализа
   analyze:
-    desc: "Запустить анализ GDShrapt. Использование: task analyze"
+    desc: "Запустить анализ GDShrapt и открыть дашборд"
     cmds:
-      # Берем путь из аргумента CLI или из переменной PROJECT_DIR
-      - docker compose run --rm gdshrapt gdshrapt analyze . --format json > gdshrapt-report.json
-    # Убираем автоматический вывод команды, чтобы не было мусора
+      # 1. Анализатор: монтируем проект (ro) и папку для отчёта
+      - docker run --rm
+          -v "{{.USER_WORKING_DIR}}/../godo/tdo:/project:ro"
+          -v "{{.USER_WORKING_DIR}}/report:/output"
+          gdshrapt-analyzer:1.0.0
+      # 2. Дашборд: монтируем ту же папку с отчётом и пробрасываем порт
+      - docker run -d --rm --name gdshrapt-dashboard
+          -p 3000:80
+          -v "{{.USER_WORKING_DIR}}/report:/reports:ro"
+          gdshrapt-dashboard:1.0.0
+      - echo "Дашборд http://localhost:3000"
     silent: false

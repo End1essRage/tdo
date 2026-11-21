@@ -4,17 +4,24 @@ class_name TrainingDummy
 @export var respawn_delay: float = 1.5
 @export var track_dps: bool = true
 @export var dps_window: float = 3.0
+var on_hit_animation: String = &"take_damage_l"
+var idle_animation: String = &"default"
 
 var total_damage: int = 0
 var last_damage: int = 0
 var dps: float = 0.0
 
 var _respawn_timer: float = 0.0
-var _hits: Array = []   # [{ "t": float, "amount": int }]
+var _hits: Array = []
 var _time: float = 0.0
+var _hit_anim_playing: bool = false
 
 func _configure() -> void:
 	add_to_group("dummy")
+	# Подключаемся к сигналу окончания анимации спрайта
+	if sprite and sprite is AnimatedSprite2D:
+		if not sprite.animation_finished.is_connected(_on_sprite_animation_finished):
+			sprite.animation_finished.connect(_on_sprite_animation_finished)
 
 func _physics_process(delta: float) -> void:
 	_time += delta
@@ -39,8 +46,30 @@ func _on_damage_received(amount: int, is_crit: bool) -> void:
 	if track_dps:
 		_hits.append({ "t": _time, "amount": amount })
 
+	_play_hit_animation()
+
+func _play_hit_animation() -> void:
+	if sprite == null or not (sprite is AnimatedSprite2D):
+		return
+	if on_hit_animation == &"":
+		return
+	if not sprite.sprite_frames or not sprite.sprite_frames.has_animation(on_hit_animation):
+		return
+
+	_hit_anim_playing = true
+	sprite.play(on_hit_animation)
+
+func _on_sprite_animation_finished() -> void:
+	# Реагируем только если это была наша hit-анимация
+	if not _hit_anim_playing:
+		return
+	_hit_anim_playing = false
+	if sprite and sprite.sprite_frames and sprite.sprite_frames.has_animation(idle_animation):
+		sprite.play(idle_animation)
+
 func _on_died() -> void:
 	super._on_died()
+	_hit_anim_playing = false
 	_respawn_timer = respawn_delay
 	if sprite:
 		sprite.modulate = Color(0.3, 0.3, 0.3, 0.6)
@@ -52,6 +81,8 @@ func _revive() -> void:
 	health_component.reset()
 	if sprite:
 		sprite.modulate = Color.WHITE
+		if sprite.sprite_frames and sprite.sprite_frames.has_animation(idle_animation):
+			sprite.play(idle_animation)
 	if hurtbox:
 		hurtbox.set_deferred("monitoring", true)
 		hurtbox.set_deferred("monitorable", true)

@@ -1,5 +1,5 @@
 extends Resource
-class_name GameConfig
+class_name PlayerConfig
 
 @export_group("Player")
 @export var player_speed: float = 100.0

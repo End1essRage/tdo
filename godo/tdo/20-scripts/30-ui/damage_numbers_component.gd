@@ -20,12 +20,18 @@ var color_outline: Color = Color(0, 0, 0, 0.9)
 var host: Node2D
 var _layer: Node2D
 
+func _apply_palette() -> void:
+	print("_apply_palette")
+	if palette == null:
+		print("cfg.palette == null")
+		return
+	color_normal = palette.color_damage_normal
+	color_crit = palette.color_damage_crit
+	color_outline = palette.color_damage_outline
+	
 func _ready() -> void:
+	_apply_palette()
 	host = get_parent() as Node2D
-	if palette:
-		color_normal = palette.color_damage_normal
-		color_crit = palette.color_damage_crit
-		color_outline = palette.color_damage_outline
 
 	var hc = host.get_node_or_null("HealthComponent")
 	if hc != null:
@@ -56,7 +62,8 @@ func spawn_number(amount: int, is_crit: bool = false, custom_color: Color = Colo
 	var label := Label.new()
 	label.text = str(amount)
 	label.add_theme_font_size_override("font_size", crit_font_size if is_crit else font_size)
-	label.add_theme_color_override("font_color", custom_color if custom_color.a > 0.0 else (color_crit if is_crit else color_normal))
+	var font_color = color_crit if is_crit else color_normal
+	label.add_theme_color_override("font_color", custom_color if custom_color.a > 0.0 else font_color)
 	label.add_theme_color_override("font_outline_color", color_outline)
 	label.add_theme_constant_override("outline_size", outline_size)
 	label.z_index = 100

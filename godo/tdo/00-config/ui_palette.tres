@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="UIPalette" format=3 uid="uid://qn2udjr53sc4"]
+
+[ext_resource type="Script" uid="uid://def6elfiym6qv" path="res://00-config/ui-palette.gd" id="1_1g5w4"]
+
+[resource]
+script = ExtResource("1_1g5w4")
+color_enemy_hp = Color(0.69189906, 0.3985255, 0.22775108, 1)
+color_damage_normal = Color(1, 0.5176471, 0.85882354, 1)
+color_damage_outline = Color(0.10625345, 0.8700721, 0.89104736, 1)
+metadata/_custom_type_script = "uid://def6elfiym6qv"

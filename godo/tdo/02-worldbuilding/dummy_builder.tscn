@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bob8qtx6arip5"]
 
-[ext_resource type="Script" uid="uid://c77wjb05fkhht" path="res://20-scripts/20-enemies/00-dummy/dummy_builder.gd" id="1_nir3l"]
+[ext_resource type="Script" uid="uid://c77wjb05fkhht" path="res://20-scripts/07-factories/dummy_builder.gd" id="1_nir3l"]
 [ext_resource type="SpriteFrames" uid="uid://dq86rqtwgrryd" path="res://10-assets/20-sprite-frames/04-enemies/00-dummy/sprite_frames.tres" id="2_vsuif"]
 
 [node name="dummy_builder" type="Node2D" unique_id=377554883]

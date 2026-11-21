@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EnemyHpBarConfig" format=3 uid="uid://uo5yg6m8u06t"]
+
+[ext_resource type="Resource" uid="uid://qn2udjr53sc4" path="res://00-config/ui_palette.tres" id="1_4uwmt"]
+[ext_resource type="Script" uid="uid://c1sprboqfvg3b" path="res://00-config/enemy_hp_bar_config.gd" id="2_117sk"]
+
+[resource]
+script = ExtResource("2_117sk")
+hide_when_full = false
+palette = ExtResource("1_4uwmt")
+metadata/_custom_type_script = "uid://c1sprboqfvg3b"

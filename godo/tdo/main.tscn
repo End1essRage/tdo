@@ -3,7 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://bugraihldgjf6" path="res://02-worldbuilding/world_exmp.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://bob8qtx6arip5" path="res://02-worldbuilding/dummy_builder.tscn" id="2_lquwl"]
 [ext_resource type="PackedScene" uid="uid://c1c16u0svoe3u" path="res://02-worldbuilding/player_builder.tscn" id="3_7mycd"]
-[ext_resource type="Resource" uid="uid://cobaktqedr6on" path="res://00-config/default.tres" id="4_272bh"]
+[ext_resource type="Resource" uid="uid://cguyqnjxynsle" path="res://00-config/dummy_default.tres" id="3_lquwl"]
+[ext_resource type="Resource" uid="uid://uo5yg6m8u06t" path="res://00-config/enemy_hp_bar_default.tres" id="4_7mycd"]
+[ext_resource type="Resource" uid="uid://cobaktqedr6on" path="res://00-config/player_default.tres" id="4_272bh"]
 
 [node name="main" type="Node2D" unique_id=1189327276]
 
@@ -11,7 +13,8 @@
 
 [node name="dummy_builder" parent="." unique_id=377554883 instance=ExtResource("2_lquwl")]
 position = Vector2(805, 347)
-hurtbox_size = Vector2(14, 14)
+cfg = ExtResource("3_lquwl")
+bar_cfg = ExtResource("4_7mycd")
 
 [node name="player_builder" parent="." unique_id=257400564 instance=ExtResource("3_7mycd")]
 position = Vector2(907, 125)

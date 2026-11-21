@@ -16,7 +16,9 @@ var impact_anim_speed: float = 15.0
 @export var spawn_offset: float = 12.0  # Отступ от центра игрока
 
 var current_ammo: int
-var projectile_builder: Node
+var projectile_builder: ProjectileBuilder
+
+var p_cfg: ProjectileConfig
 
 signal shot_fired
 signal ammo_changed(current: int, maximum: int)
@@ -24,6 +26,11 @@ signal ammo_changed(current: int, maximum: int)
 func _ready() -> void:
 	player = get_parent() as Player
 	current_ammo = max_ammo
+	
+	p_cfg = ProjectileConfig.new()
+	p_cfg.damage = damage
+	p_cfg.speed = bullet_speed
+	p_cfg.lifetime = bullet_lifetime
 
 func _process(delta: float) -> void:
 	if fire_cooldown > 0:
@@ -50,9 +57,7 @@ func try_shoot(aim_direction: Vector2) -> bool:
 	var bullet := projectile_builder.spawn_bullet(
 		spawn_pos,
 		aim_direction,
-		damage,
-		bullet_speed,
-		bullet_lifetime
+		p_cfg
 	) as Projectile
 	
 	if bullet != null:

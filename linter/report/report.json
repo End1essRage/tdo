@@ -1,14 +1,245 @@
-Project loaded: 35 scripts
 {
   "projectPath": "/project",
-  "totalFiles": 35,
-  "filesWithErrors": 31,
-  "totalErrors": 1,
-  "totalWarnings": 10,
-  "totalHints": 247,
+  "totalFiles": 38,
+  "filesWithErrors": 32,
+  "totalErrors": 0,
+  "totalWarnings": 3,
+  "totalHints": 249,
   "files": [
     {
-      "filePath": "01-admin/admin_menu.gd",
+      "filePath": "20-scripts/07-factories/projectile_builder.gd",
+      "diagnostics": [
+        {
+          "code": "GDL202",
+          "message": "Parameter \u0027from\u0027 is declared but never used",
+          "severity": "information",
+          "line": 25,
+          "column": 18,
+          "endLine": 25,
+          "endColumn": 22
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 29,
+          "column": 1,
+          "endLine": 29,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (2 character(s))",
+          "severity": "hint",
+          "line": 33,
+          "column": 1,
+          "endLine": 33,
+          "endColumn": 3
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 18,
+          "column": 0,
+          "endLine": 18,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 25,
+          "column": 0,
+          "endLine": 25,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 37,
+          "column": 0,
+          "endLine": 37,
+          "endColumn": 4
+        }
+      ]
+    },
+    {
+      "filePath": "20-scripts/30-ui/damage_numbers_component.gd",
+      "diagnostics": [
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 34,
+          "column": 0,
+          "endLine": 34,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 48,
+          "column": 0,
+          "endLine": 48,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 51,
+          "column": 0,
+          "endLine": 51,
+          "endColumn": 4
+        }
+      ]
+    },
+    {
+      "filePath": "20-scripts/20-enemies/00-dummy/dummy.gd",
+      "diagnostics": [
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 26,
+          "column": 0,
+          "endLine": 26,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 42,
+          "column": 0,
+          "endLine": 42,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 51,
+          "column": 0,
+          "endLine": 51,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 62,
+          "column": 0,
+          "endLine": 62,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 70,
+          "column": 0,
+          "endLine": 70,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 80,
+          "column": 0,
+          "endLine": 80,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 90,
+          "column": 0,
+          "endLine": 90,
+          "endColumn": 4
+        }
+      ]
+    },
+    {
+      "filePath": "20-scripts/11-components/status-effects/status_effect.gd",
+      "diagnostics": [
+        {
+          "code": "GDL203",
+          "message": "Function \u0027on_apply\u0027 only contains \u0027pass\u0027",
+          "severity": "information",
+          "line": 14,
+          "column": 5,
+          "endLine": 14,
+          "endColumn": 13
+        },
+        {
+          "code": "GDL203",
+          "message": "Function \u0027on_remove\u0027 only contains \u0027pass\u0027",
+          "severity": "information",
+          "line": 17,
+          "column": 5,
+          "endLine": 17,
+          "endColumn": 14
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 11,
+          "column": 0,
+          "endLine": 11,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 14,
+          "column": 0,
+          "endLine": 14,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 17,
+          "column": 0,
+          "endLine": 17,
+          "endColumn": 4
+        }
+      ]
+    },
+    {
+      "filePath": "20-scripts/10-player/movement-states/idle.gd",
+      "diagnostics": [
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 10,
+          "column": 1,
+          "endLine": 10,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 7,
+          "column": 0,
+          "endLine": 7,
+          "endColumn": 4
+        }
+      ]
+    },
+    {
+      "filePath": "20-scripts/30-ui/01-admin/admin_menu.gd",
       "diagnostics": [
         {
           "code": "GDL502",
@@ -247,24 +478,51 @@ Project loaded: 35 scripts
       ]
     },
     {
-      "filePath": "03-player/10-scripts/status-effects/dot_effect.gd",
+      "filePath": "20-scripts/10-player/input_component.gd",
       "diagnostics": [
         {
-          "code": "GD2001",
-          "message": "Undefined identifier: \u0027_player\u0027",
-          "severity": "error",
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
           "line": 17,
-          "column": 2,
+          "column": 1,
           "endLine": 17,
-          "endColumn": 9
+          "endColumn": 2
         },
         {
           "code": "GDL502",
           "message": "Trailing whitespace (1 character(s))",
           "severity": "hint",
-          "line": 14,
+          "line": 22,
           "column": 1,
-          "endLine": 14,
+          "endLine": 22,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 27,
+          "column": 1,
+          "endLine": 27,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 32,
+          "column": 1,
+          "endLine": 32,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 37,
+          "column": 1,
+          "endLine": 37,
           "endColumn": 2
         },
         {
@@ -279,8 +537,26 @@ Project loaded: 35 scripts
       ]
     },
     {
-      "filePath": "04-enemies/00-dummy/dummy.gd",
+      "filePath": "20-scripts/11-components/status-effects/manager.gd",
       "diagnostics": [
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (2 character(s))",
+          "severity": "hint",
+          "line": 15,
+          "column": 1,
+          "endLine": 15,
+          "endColumn": 3
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 10,
+          "column": 0,
+          "endLine": 10,
+          "endColumn": 4
+        },
         {
           "code": "GDL513",
           "message": "Expected 2 empty line(s) before function, found 1",
@@ -294,957 +570,24 @@ Project loaded: 35 scripts
           "code": "GDL513",
           "message": "Expected 2 empty line(s) before function, found 1",
           "severity": "hint",
-          "line": 35,
-          "column": 0,
-          "endLine": 35,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 42,
-          "column": 0,
-          "endLine": 42,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 51,
-          "column": 0,
-          "endLine": 51,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 59,
-          "column": 0,
-          "endLine": 59,
-          "endColumn": 4
-        }
-      ]
-    },
-    {
-      "filePath": "11-scripts/10-components/damage_flash_component.gd",
-      "diagnostics": [
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 20,
-          "column": 0,
-          "endLine": 20,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 32,
-          "column": 0,
-          "endLine": 32,
-          "endColumn": 4
-        }
-      ]
-    },
-    {
-      "filePath": "20-ui/enemy_health_bar.gd",
-      "diagnostics": [
-        {
-          "code": "GDL101",
-          "message": "Line 109 exceeds 120 characters (length: 121)",
-          "severity": "warning",
-          "line": 109,
-          "column": 0,
-          "endLine": 109,
-          "endColumn": 0
-        },
-        {
-          "code": "GDL227",
-          "message": "\u0027EnemyHealthBar\u0027 has 26 member variables (max 20)",
-          "severity": "warning",
-          "line": 2,
-          "column": 11,
-          "endLine": 2,
-          "endColumn": 25
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 59,
-          "column": 0,
-          "endLine": 59,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 67,
-          "column": 0,
-          "endLine": 67,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 94,
-          "column": 0,
-          "endLine": 94,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 100,
-          "column": 0,
-          "endLine": 100,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 105,
-          "column": 0,
-          "endLine": 105,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 111,
-          "column": 0,
-          "endLine": 111,
-          "endColumn": 4
-        }
-      ]
-    },
-    {
-      "filePath": "03-player/10-scripts/player.gd",
-      "diagnostics": [
-        {
-          "code": "GDL227",
-          "message": "\u0027Player\u0027 has 23 member variables (max 20)",
-          "severity": "warning",
-          "line": 2,
-          "column": 11,
-          "endLine": 2,
-          "endColumn": 17
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (3 character(s))",
-          "severity": "hint",
-          "line": 24,
-          "column": 25,
-          "endLine": 24,
-          "endColumn": 28
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 48,
-          "column": 1,
-          "endLine": 48,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (2 character(s))",
-          "severity": "hint",
-          "line": 51,
-          "column": 1,
-          "endLine": 51,
-          "endColumn": 3
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 52,
-          "column": 29,
-          "endLine": 52,
-          "endColumn": 30
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 58,
-          "column": 1,
-          "endLine": 58,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 66,
-          "column": 1,
-          "endLine": 66,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 70,
-          "column": 1,
-          "endLine": 70,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 76,
-          "column": 15,
-          "endLine": 76,
-          "endColumn": 16
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 93,
-          "column": 1,
-          "endLine": 93,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 100,
-          "column": 1,
-          "endLine": 100,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 104,
-          "column": 1,
-          "endLine": 104,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 116,
-          "column": 1,
-          "endLine": 116,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 122,
-          "column": 1,
-          "endLine": 122,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 126,
-          "column": 1,
-          "endLine": 126,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 130,
-          "column": 1,
-          "endLine": 130,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 134,
-          "column": 1,
-          "endLine": 134,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 138,
-          "column": 1,
-          "endLine": 138,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 147,
-          "column": 1,
-          "endLine": 147,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 151,
-          "column": 1,
-          "endLine": 151,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 156,
-          "column": 1,
-          "endLine": 156,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 166,
-          "column": 1,
-          "endLine": 166,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 169,
-          "column": 1,
-          "endLine": 169,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 174,
-          "column": 1,
-          "endLine": 174,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 182,
-          "column": 1,
-          "endLine": 182,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 0",
-          "severity": "hint",
-          "line": 53,
-          "column": 0,
-          "endLine": 53,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 74,
-          "column": 0,
-          "endLine": 74,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 86,
-          "column": 0,
-          "endLine": 86,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 89,
-          "column": 0,
-          "endLine": 89,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 95,
-          "column": 0,
-          "endLine": 95,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 98,
-          "column": 0,
-          "endLine": 98,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 107,
-          "column": 0,
-          "endLine": 107,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 110,
-          "column": 0,
-          "endLine": 110,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 114,
-          "column": 0,
-          "endLine": 114,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 143,
-          "column": 0,
-          "endLine": 143,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 178,
-          "column": 0,
-          "endLine": 178,
-          "endColumn": 4
-        }
-      ]
-    },
-    {
-      "filePath": "11-scripts/10-components/health_component.gd",
-      "diagnostics": [
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 49,
-          "column": 0,
-          "endLine": 49,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 65,
-          "column": 0,
-          "endLine": 65,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 69,
-          "column": 0,
-          "endLine": 69,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 104,
-          "column": 0,
-          "endLine": 104,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 113,
-          "column": 0,
-          "endLine": 113,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 116,
-          "column": 0,
-          "endLine": 116,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 127,
-          "column": 0,
-          "endLine": 127,
-          "endColumn": 4
-        }
-      ]
-    },
-    {
-      "filePath": "05-projectiles/projectile_builder.gd",
-      "diagnostics": [
-        {
-          "code": "GDL101",
-          "message": "Line 25 exceeds 120 characters (length: 150)",
-          "severity": "warning",
-          "line": 25,
-          "column": 0,
-          "endLine": 25,
-          "endColumn": 0
-        },
-        {
-          "code": "GDL202",
-          "message": "Parameter \u0027from\u0027 is declared but never used",
-          "severity": "information",
-          "line": 25,
-          "column": 18,
-          "endLine": 25,
-          "endColumn": 22
-        },
-        {
-          "code": "GDL205",
-          "message": "Function \u0027spawn_bullet\u0027 has 6 parameters, which exceeds the maximum of 5",
-          "severity": "warning",
-          "line": 25,
-          "column": 5,
-          "endLine": 25,
-          "endColumn": 17
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
           "line": 27,
-          "column": 1,
+          "column": 0,
           "endLine": 27,
-          "endColumn": 2
+          "endColumn": 4
         },
         {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
           "severity": "hint",
           "line": 32,
-          "column": 1,
+          "column": 0,
           "endLine": 32,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (2 character(s))",
-          "severity": "hint",
-          "line": 36,
-          "column": 1,
-          "endLine": 36,
-          "endColumn": 3
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 18,
-          "column": 0,
-          "endLine": 18,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 25,
-          "column": 0,
-          "endLine": 25,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 40,
-          "column": 0,
-          "endLine": 40,
           "endColumn": 4
         }
       ]
     },
     {
-      "filePath": "11-scripts/hurtbox.gd",
-      "diagnostics": [
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 11,
-          "column": 0,
-          "endLine": 11,
-          "endColumn": 4
-        }
-      ]
-    },
-    {
-      "filePath": "04-enemies/00-dummy/dummy_builder.gd",
-      "diagnostics": [
-        {
-          "code": "GDL206",
-          "message": "Function \u0027build_dummy\u0027 has approximately 72 statements, which exceeds the maximum of 50",
-          "severity": "warning",
-          "line": 37,
-          "column": 5,
-          "endLine": 37,
-          "endColumn": 16
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 37,
-          "column": 0,
-          "endLine": 37,
-          "endColumn": 4
-        }
-      ]
-    },
-    {
-      "filePath": "03-player/10-scripts/input_component.gd",
-      "diagnostics": [
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 17,
-          "column": 1,
-          "endLine": 17,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 22,
-          "column": 1,
-          "endLine": 22,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 27,
-          "column": 1,
-          "endLine": 27,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 32,
-          "column": 1,
-          "endLine": 32,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 37,
-          "column": 1,
-          "endLine": 37,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 11,
-          "column": 0,
-          "endLine": 11,
-          "endColumn": 4
-        }
-      ]
-    },
-    {
-      "filePath": "03-player/10-scripts/status-effects/status_effect.gd",
-      "diagnostics": [
-        {
-          "code": "GDL203",
-          "message": "Function \u0027on_apply\u0027 only contains \u0027pass\u0027",
-          "severity": "information",
-          "line": 14,
-          "column": 5,
-          "endLine": 14,
-          "endColumn": 13
-        },
-        {
-          "code": "GDL203",
-          "message": "Function \u0027on_remove\u0027 only contains \u0027pass\u0027",
-          "severity": "information",
-          "line": 17,
-          "column": 5,
-          "endLine": 17,
-          "endColumn": 14
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 11,
-          "column": 0,
-          "endLine": 11,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 14,
-          "column": 0,
-          "endLine": 14,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 17,
-          "column": 0,
-          "endLine": 17,
-          "endColumn": 4
-        }
-      ]
-    },
-    {
-      "filePath": "05-projectiles/hit_effect.gd",
-      "diagnostics": [
-        {
-          "code": "GDL202",
-          "message": "Parameter \u0027anim_speed\u0027 is declared but never used",
-          "severity": "information",
-          "line": 3,
-          "column": 71,
-          "endLine": 3,
-          "endColumn": 81
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 10,
-          "column": 1,
-          "endLine": 10,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 22,
-          "column": 1,
-          "endLine": 22,
-          "endColumn": 2
-        }
-      ]
-    },
-    {
-      "filePath": "03-player/10-scripts/components/shooting_component.gd",
-      "diagnostics": [
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (2 character(s))",
-          "severity": "hint",
-          "line": 39,
-          "column": 1,
-          "endLine": 39,
-          "endColumn": 3
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 42,
-          "column": 1,
-          "endLine": 42,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 48,
-          "column": 1,
-          "endLine": 48,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 57,
-          "column": 1,
-          "endLine": 57,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (2 character(s))",
-          "severity": "hint",
-          "line": 62,
-          "column": 1,
-          "endLine": 62,
-          "endColumn": 3
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (2 character(s))",
-          "severity": "hint",
-          "line": 69,
-          "column": 1,
-          "endLine": 69,
-          "endColumn": 3
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 28,
-          "column": 0,
-          "endLine": 28,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 34,
-          "column": 0,
-          "endLine": 34,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 72,
-          "column": 0,
-          "endLine": 72,
-          "endColumn": 4
-        }
-      ]
-    },
-    {
-      "filePath": "03-player/10-scripts/movement-states/dash.gd",
-      "diagnostics": [
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 9,
-          "column": 1,
-          "endLine": 9,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 17,
-          "column": 1,
-          "endLine": 17,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 20,
-          "column": 1,
-          "endLine": 20,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 26,
-          "column": 1,
-          "endLine": 26,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 29,
-          "column": 1,
-          "endLine": 29,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 24,
-          "column": 0,
-          "endLine": 24,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 36,
-          "column": 0,
-          "endLine": 36,
-          "endColumn": 4
-        }
-      ]
-    },
-    {
-      "filePath": "04-enemies/enemy_base.gd",
+      "filePath": "20-scripts/20-enemies/enemy_base.gd",
       "diagnostics": [
         {
           "code": "GDL203",
@@ -1312,175 +655,7 @@ Project loaded: 35 scripts
       ]
     },
     {
-      "filePath": "03-player/10-scripts/camera.gd",
-      "diagnostics": [
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 12,
-          "column": 1,
-          "endLine": 12,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 15,
-          "column": 1,
-          "endLine": 15,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (2 character(s))",
-          "severity": "hint",
-          "line": 28,
-          "column": 1,
-          "endLine": 28,
-          "endColumn": 3
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 31,
-          "column": 1,
-          "endLine": 31,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (2 character(s))",
-          "severity": "hint",
-          "line": 36,
-          "column": 1,
-          "endLine": 36,
-          "endColumn": 3
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (2 character(s))",
-          "severity": "hint",
-          "line": 41,
-          "column": 1,
-          "endLine": 41,
-          "endColumn": 3
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 25,
-          "column": 0,
-          "endLine": 25,
-          "endColumn": 4
-        }
-      ]
-    },
-    {
-      "filePath": "03-player/10-scripts/movement_fsm.gd",
-      "diagnostics": [
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 13,
-          "column": 1,
-          "endLine": 13,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (2 character(s))",
-          "severity": "hint",
-          "line": 25,
-          "column": 1,
-          "endLine": 25,
-          "endColumn": 3
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 28,
-          "column": 1,
-          "endLine": 28,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 33,
-          "column": 1,
-          "endLine": 33,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 18,
-          "column": 0,
-          "endLine": 18,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 22,
-          "column": 0,
-          "endLine": 22,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 26,
-          "column": 0,
-          "endLine": 26,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 29,
-          "column": 0,
-          "endLine": 29,
-          "endColumn": 4
-        }
-      ]
-    },
-    {
-      "filePath": "03-player/10-scripts/movement-states/idle.gd",
-      "diagnostics": [
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 10,
-          "column": 1,
-          "endLine": 10,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 7,
-          "column": 0,
-          "endLine": 7,
-          "endColumn": 4
-        }
-      ]
-    },
-    {
-      "filePath": "20-ui/player_ui.gd",
+      "filePath": "20-scripts/30-ui/10-player-hud/player_ui.gd",
       "diagnostics": [
         {
           "code": "GDL513",
@@ -1557,79 +732,445 @@ Project loaded: 35 scripts
       ]
     },
     {
-      "filePath": "05-projectiles/projectile.gd",
+      "filePath": "20-scripts/11-components/hurtbox.gd",
       "diagnostics": [
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 11,
+          "column": 0,
+          "endLine": 11,
+          "endColumn": 4
+        }
+      ]
+    },
+    {
+      "filePath": "20-scripts/30-ui/10-player-hud/player_hud.gd",
+      "diagnostics": [
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 13,
+          "column": 0,
+          "endLine": 13,
+          "endColumn": 4
+        }
+      ]
+    },
+    {
+      "filePath": "20-scripts/10-player/player.gd",
+      "diagnostics": [
+        {
+          "code": "GDL227",
+          "message": "\u0027Player\u0027 has 23 member variables (max 20)",
+          "severity": "warning",
+          "line": 2,
+          "column": 11,
+          "endLine": 2,
+          "endColumn": 17
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (3 character(s))",
+          "severity": "hint",
+          "line": 24,
+          "column": 25,
+          "endLine": 24,
+          "endColumn": 28
+        },
         {
           "code": "GDL502",
           "message": "Trailing whitespace (1 character(s))",
           "severity": "hint",
-          "line": 65,
+          "line": 43,
           "column": 1,
-          "endLine": 65,
+          "endLine": 43,
           "endColumn": 2
         },
         {
           "code": "GDL502",
-          "message": "Trailing whitespace (3 character(s))",
+          "message": "Trailing whitespace (1 character(s))",
           "severity": "hint",
-          "line": 72,
+          "line": 59,
           "column": 1,
-          "endLine": 72,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (3 character(s))",
-          "severity": "hint",
-          "line": 77,
-          "column": 1,
-          "endLine": 77,
-          "endColumn": 4
+          "endLine": 59,
+          "endColumn": 2
         },
         {
           "code": "GDL502",
           "message": "Trailing whitespace (2 character(s))",
           "severity": "hint",
-          "line": 80,
+          "line": 62,
           "column": 1,
-          "endLine": 80,
+          "endLine": 62,
           "endColumn": 3
         },
         {
           "code": "GDL502",
           "message": "Trailing whitespace (1 character(s))",
           "severity": "hint",
-          "line": 92,
-          "column": 68,
-          "endLine": 92,
-          "endColumn": 69
+          "line": 63,
+          "column": 29,
+          "endLine": 63,
+          "endColumn": 30
         },
         {
           "code": "GDL502",
-          "message": "Trailing whitespace (2 character(s))",
+          "message": "Trailing whitespace (1 character(s))",
           "severity": "hint",
-          "line": 94,
+          "line": 69,
           "column": 1,
-          "endLine": 94,
-          "endColumn": 3
+          "endLine": 69,
+          "endColumn": 2
         },
         {
           "code": "GDL502",
-          "message": "Trailing whitespace (2 character(s))",
+          "message": "Trailing whitespace (1 character(s))",
           "severity": "hint",
-          "line": 109,
+          "line": 77,
           "column": 1,
-          "endLine": 109,
-          "endColumn": 3
+          "endLine": 77,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 81,
+          "column": 1,
+          "endLine": 81,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 87,
+          "column": 15,
+          "endLine": 87,
+          "endColumn": 16
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 104,
+          "column": 1,
+          "endLine": 104,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 111,
+          "column": 1,
+          "endLine": 111,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 115,
+          "column": 1,
+          "endLine": 115,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 127,
+          "column": 1,
+          "endLine": 127,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 133,
+          "column": 1,
+          "endLine": 133,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 137,
+          "column": 1,
+          "endLine": 137,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 141,
+          "column": 1,
+          "endLine": 141,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 145,
+          "column": 1,
+          "endLine": 145,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 149,
+          "column": 1,
+          "endLine": 149,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 158,
+          "column": 1,
+          "endLine": 158,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 162,
+          "column": 1,
+          "endLine": 162,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 167,
+          "column": 1,
+          "endLine": 167,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 177,
+          "column": 1,
+          "endLine": 177,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 180,
+          "column": 1,
+          "endLine": 180,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 185,
+          "column": 1,
+          "endLine": 185,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 193,
+          "column": 1,
+          "endLine": 193,
+          "endColumn": 2
         },
         {
           "code": "GDL513",
           "message": "Expected 2 empty line(s) before function, found 1",
           "severity": "hint",
-          "line": 29,
+          "line": 48,
           "column": 0,
-          "endLine": 29,
+          "endLine": 48,
           "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 0",
+          "severity": "hint",
+          "line": 64,
+          "column": 0,
+          "endLine": 64,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 85,
+          "column": 0,
+          "endLine": 85,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 97,
+          "column": 0,
+          "endLine": 97,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 100,
+          "column": 0,
+          "endLine": 100,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 106,
+          "column": 0,
+          "endLine": 106,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 109,
+          "column": 0,
+          "endLine": 109,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 118,
+          "column": 0,
+          "endLine": 118,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 121,
+          "column": 0,
+          "endLine": 121,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 125,
+          "column": 0,
+          "endLine": 125,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 154,
+          "column": 0,
+          "endLine": 154,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 189,
+          "column": 0,
+          "endLine": 189,
+          "endColumn": 4
+        }
+      ]
+    },
+    {
+      "filePath": "20-scripts/10-player/components/shooting_component.gd",
+      "diagnostics": [
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 29,
+          "column": 1,
+          "endLine": 29,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (2 character(s))",
+          "severity": "hint",
+          "line": 46,
+          "column": 1,
+          "endLine": 46,
+          "endColumn": 3
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 49,
+          "column": 1,
+          "endLine": 49,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 55,
+          "column": 1,
+          "endLine": 55,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 62,
+          "column": 1,
+          "endLine": 62,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (2 character(s))",
+          "severity": "hint",
+          "line": 67,
+          "column": 1,
+          "endLine": 67,
+          "endColumn": 3
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (2 character(s))",
+          "severity": "hint",
+          "line": 74,
+          "column": 1,
+          "endLine": 74,
+          "endColumn": 3
         },
         {
           "code": "GDL513",
@@ -1644,33 +1185,260 @@ Project loaded: 35 scripts
           "code": "GDL513",
           "message": "Expected 2 empty line(s) before function, found 1",
           "severity": "hint",
-          "line": 39,
+          "line": 41,
           "column": 0,
-          "endLine": 39,
+          "endLine": 41,
           "endColumn": 4
         },
         {
           "code": "GDL513",
           "message": "Expected 2 empty line(s) before function, found 1",
           "severity": "hint",
-          "line": 43,
+          "line": 77,
           "column": 0,
-          "endLine": 43,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 59,
-          "column": 0,
-          "endLine": 59,
+          "endLine": 77,
           "endColumn": 4
         }
       ]
     },
     {
-      "filePath": "03-player/10-scripts/movement-states/walk.gd",
+      "filePath": "20-scripts/11-components/status-effects/slow_effect.gd.gd",
+      "diagnostics": [
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 10,
+          "column": 0,
+          "endLine": 10,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 13,
+          "column": 0,
+          "endLine": 13,
+          "endColumn": 4
+        }
+      ]
+    },
+    {
+      "filePath": "20-scripts/07-factories/dummy_builder.gd",
+      "diagnostics": [
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 25,
+          "column": 1,
+          "endLine": 25,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 26,
+          "column": 1,
+          "endLine": 26,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 69,
+          "column": 1,
+          "endLine": 69,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 9,
+          "column": 0,
+          "endLine": 9,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 61,
+          "column": 0,
+          "endLine": 61,
+          "endColumn": 4
+        }
+      ]
+    },
+    {
+      "filePath": "20-scripts/07-factories/player_builder.gd",
+      "diagnostics": [
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 9,
+          "column": 1,
+          "endLine": 9,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 47,
+          "column": 1,
+          "endLine": 47,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 50,
+          "column": 1,
+          "endLine": 50,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (2 character(s))",
+          "severity": "hint",
+          "line": 53,
+          "column": 1,
+          "endLine": 53,
+          "endColumn": 3
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (2 character(s))",
+          "severity": "hint",
+          "line": 77,
+          "column": 1,
+          "endLine": 77,
+          "endColumn": 3
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 86,
+          "column": 1,
+          "endLine": 86,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (2 character(s))",
+          "severity": "hint",
+          "line": 91,
+          "column": 1,
+          "endLine": 91,
+          "endColumn": 3
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 13,
+          "column": 0,
+          "endLine": 13,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 56,
+          "column": 0,
+          "endLine": 56,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 64,
+          "column": 0,
+          "endLine": 64,
+          "endColumn": 4
+        }
+      ]
+    },
+    {
+      "filePath": "20-scripts/10-player/movement-states/dash.gd",
+      "diagnostics": [
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 9,
+          "column": 1,
+          "endLine": 9,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 17,
+          "column": 1,
+          "endLine": 17,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 20,
+          "column": 1,
+          "endLine": 20,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 26,
+          "column": 1,
+          "endLine": 26,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 29,
+          "column": 1,
+          "endLine": 29,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 24,
+          "column": 0,
+          "endLine": 24,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 36,
+          "column": 0,
+          "endLine": 36,
+          "endColumn": 4
+        }
+      ]
+    },
+    {
+      "filePath": "20-scripts/10-player/movement-states/walk.gd",
       "diagnostics": [
         {
           "code": "GDL202",
@@ -1765,34 +1533,61 @@ Project loaded: 35 scripts
       ]
     },
     {
-      "filePath": "03-player/10-scripts/components/reload_component.gd",
+      "filePath": "20-scripts/camera.gd",
       "diagnostics": [
         {
           "code": "GDL502",
           "message": "Trailing whitespace (1 character(s))",
           "severity": "hint",
-          "line": 16,
+          "line": 12,
           "column": 1,
-          "endLine": 16,
+          "endLine": 12,
           "endColumn": 2
         },
         {
           "code": "GDL502",
           "message": "Trailing whitespace (1 character(s))",
           "severity": "hint",
-          "line": 19,
+          "line": 15,
           "column": 1,
-          "endLine": 19,
+          "endLine": 15,
           "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (2 character(s))",
+          "severity": "hint",
+          "line": 28,
+          "column": 1,
+          "endLine": 28,
+          "endColumn": 3
         },
         {
           "code": "GDL502",
           "message": "Trailing whitespace (1 character(s))",
           "severity": "hint",
-          "line": 40,
+          "line": 31,
           "column": 1,
-          "endLine": 40,
+          "endLine": 31,
           "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (2 character(s))",
+          "severity": "hint",
+          "line": 36,
+          "column": 1,
+          "endLine": 36,
+          "endColumn": 3
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (2 character(s))",
+          "severity": "hint",
+          "line": 41,
+          "column": 1,
+          "endLine": 41,
+          "endColumn": 3
         },
         {
           "code": "GDL513",
@@ -1802,305 +1597,215 @@ Project loaded: 35 scripts
           "column": 0,
           "endLine": 25,
           "endColumn": 4
+        }
+      ]
+    },
+    {
+      "filePath": "20-scripts/30-ui/enemy_health_bar.gd",
+      "diagnostics": [
+        {
+          "code": "GDL101",
+          "message": "Line 109 exceeds 120 characters (length: 121)",
+          "severity": "warning",
+          "line": 109,
+          "column": 0,
+          "endLine": 109,
+          "endColumn": 0
+        },
+        {
+          "code": "GDL227",
+          "message": "\u0027EnemyHealthBar\u0027 has 26 member variables (max 20)",
+          "severity": "warning",
+          "line": 2,
+          "column": 11,
+          "endLine": 2,
+          "endColumn": 25
         },
         {
           "code": "GDL513",
           "message": "Expected 2 empty line(s) before function, found 1",
           "severity": "hint",
-          "line": 29,
+          "line": 59,
           "column": 0,
-          "endLine": 29,
+          "endLine": 59,
           "endColumn": 4
         },
         {
           "code": "GDL513",
           "message": "Expected 2 empty line(s) before function, found 1",
           "severity": "hint",
-          "line": 35,
+          "line": 67,
           "column": 0,
-          "endLine": 35,
+          "endLine": 67,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 94,
+          "column": 0,
+          "endLine": 94,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 100,
+          "column": 0,
+          "endLine": 100,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 105,
+          "column": 0,
+          "endLine": 105,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 111,
+          "column": 0,
+          "endLine": 111,
           "endColumn": 4
         }
       ]
     },
     {
-      "filePath": "20-ui/damage_numbers_component.gd",
+      "filePath": "20-scripts/11-components/health_component.gd",
       "diagnostics": [
         {
-          "code": "GDL101",
-          "message": "Line 59 exceeds 120 characters (length: 130)",
-          "severity": "warning",
-          "line": 59,
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 49,
           "column": 0,
-          "endLine": 59,
-          "endColumn": 0
+          "endLine": 49,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 65,
+          "column": 0,
+          "endLine": 65,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 69,
+          "column": 0,
+          "endLine": 69,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 104,
+          "column": 0,
+          "endLine": 104,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 113,
+          "column": 0,
+          "endLine": 113,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 116,
+          "column": 0,
+          "endLine": 116,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 127,
+          "column": 0,
+          "endLine": 127,
+          "endColumn": 4
+        }
+      ]
+    },
+    {
+      "filePath": "20-scripts/07-factories/component_factory.gd",
+      "diagnostics": [
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 20,
+          "column": 7,
+          "endLine": 20,
+          "endColumn": 11
         },
         {
           "code": "GDL513",
           "message": "Expected 2 empty line(s) before function, found 1",
           "severity": "hint",
           "line": 34,
-          "column": 0,
+          "column": 7,
           "endLine": 34,
-          "endColumn": 4
+          "endColumn": 11
         },
         {
           "code": "GDL513",
           "message": "Expected 2 empty line(s) before function, found 1",
           "severity": "hint",
-          "line": 48,
-          "column": 0,
-          "endLine": 48,
-          "endColumn": 4
+          "line": 50,
+          "column": 7,
+          "endLine": 50,
+          "endColumn": 11
         },
         {
           "code": "GDL513",
           "message": "Expected 2 empty line(s) before function, found 1",
           "severity": "hint",
-          "line": 51,
-          "column": 0,
-          "endLine": 51,
-          "endColumn": 4
-        }
-      ]
-    },
-    {
-      "filePath": "03-player/10-scripts/player_builder.gd",
-      "diagnostics": [
-        {
-          "code": "GDL206",
-          "message": "Function \u0027build_player\u0027 has approximately 85 statements, which exceeds the maximum of 50",
-          "severity": "warning",
-          "line": 32,
-          "column": 5,
-          "endLine": 32,
-          "endColumn": 17
+          "line": 64,
+          "column": 7,
+          "endLine": 64,
+          "endColumn": 11
         },
         {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 36,
-          "column": 1,
-          "endLine": 36,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 42,
-          "column": 1,
-          "endLine": 42,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 46,
-          "column": 1,
-          "endLine": 46,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 48,
-          "column": 1,
-          "endLine": 48,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 55,
-          "column": 1,
-          "endLine": 55,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 62,
-          "column": 1,
-          "endLine": 62,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 67,
-          "column": 1,
-          "endLine": 67,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 72,
-          "column": 1,
-          "endLine": 72,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 76,
-          "column": 1,
-          "endLine": 76,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
           "severity": "hint",
           "line": 83,
-          "column": 1,
+          "column": 7,
           "endLine": 83,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 88,
-          "column": 1,
-          "endLine": 88,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 96,
-          "column": 1,
-          "endLine": 96,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 103,
-          "column": 1,
-          "endLine": 103,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 125,
-          "column": 1,
-          "endLine": 125,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (2 character(s))",
-          "severity": "hint",
-          "line": 130,
-          "column": 1,
-          "endLine": 130,
-          "endColumn": 3
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (2 character(s))",
-          "severity": "hint",
-          "line": 136,
-          "column": 1,
-          "endLine": 136,
-          "endColumn": 3
+          "endColumn": 11
         },
         {
           "code": "GDL513",
           "message": "Expected 2 empty line(s) before function, found 1",
           "severity": "hint",
-          "line": 32,
-          "column": 0,
-          "endLine": 32,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 139,
-          "column": 0,
-          "endLine": 139,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 147,
-          "column": 0,
-          "endLine": 147,
-          "endColumn": 4
+          "line": 93,
+          "column": 7,
+          "endLine": 93,
+          "endColumn": 11
         }
       ]
     },
     {
-      "filePath": "03-player/10-scripts/status-effects/manager.gd",
-      "diagnostics": [
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (2 character(s))",
-          "severity": "hint",
-          "line": 15,
-          "column": 1,
-          "endLine": 15,
-          "endColumn": 3
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 10,
-          "column": 0,
-          "endLine": 10,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 19,
-          "column": 0,
-          "endLine": 19,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 27,
-          "column": 0,
-          "endLine": 27,
-          "endColumn": 4
-        },
-        {
-          "code": "GDL513",
-          "message": "Expected 2 empty line(s) before function, found 1",
-          "severity": "hint",
-          "line": 32,
-          "column": 0,
-          "endLine": 32,
-          "endColumn": 4
-        }
-      ]
-    },
-    {
-      "filePath": "03-player/10-scripts/state.gd",
+      "filePath": "20-scripts/10-player/state.gd",
       "diagnostics": [
         {
           "code": "GDL203",
@@ -2168,30 +1873,171 @@ Project loaded: 35 scripts
       ]
     },
     {
-      "filePath": "03-player/10-scripts/status-effects/slow_effect.gd.gd",
+      "filePath": "20-scripts/11-components/damage_flash_component.gd",
       "diagnostics": [
         {
           "code": "GDL513",
           "message": "Expected 2 empty line(s) before function, found 1",
           "severity": "hint",
-          "line": 10,
+          "line": 20,
           "column": 0,
-          "endLine": 10,
+          "endLine": 20,
           "endColumn": 4
         },
         {
           "code": "GDL513",
           "message": "Expected 2 empty line(s) before function, found 1",
           "severity": "hint",
-          "line": 13,
+          "line": 32,
           "column": 0,
-          "endLine": 13,
+          "endLine": 32,
           "endColumn": 4
         }
       ]
     },
     {
-      "filePath": "20-ui/dash_charges_ui.gd",
+      "filePath": "20-scripts/15-projectiles/hit_effect.gd",
+      "diagnostics": [
+        {
+          "code": "GDL202",
+          "message": "Parameter \u0027anim_speed\u0027 is declared but never used",
+          "severity": "information",
+          "line": 3,
+          "column": 71,
+          "endLine": 3,
+          "endColumn": 81
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 10,
+          "column": 1,
+          "endLine": 10,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 22,
+          "column": 1,
+          "endLine": 22,
+          "endColumn": 2
+        }
+      ]
+    },
+    {
+      "filePath": "20-scripts/11-components/status-effects/dot_effect.gd",
+      "diagnostics": [
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 11,
+          "column": 1,
+          "endLine": 11,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 14,
+          "column": 1,
+          "endLine": 14,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 18,
+          "column": 1,
+          "endLine": 18,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 12,
+          "column": 0,
+          "endLine": 12,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 15,
+          "column": 0,
+          "endLine": 15,
+          "endColumn": 4
+        }
+      ]
+    },
+    {
+      "filePath": "20-scripts/10-player/components/reload_component.gd",
+      "diagnostics": [
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 16,
+          "column": 1,
+          "endLine": 16,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 19,
+          "column": 1,
+          "endLine": 19,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 40,
+          "column": 1,
+          "endLine": 40,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 25,
+          "column": 0,
+          "endLine": 25,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 29,
+          "column": 0,
+          "endLine": 29,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 35,
+          "column": 0,
+          "endLine": 35,
+          "endColumn": 4
+        }
+      ]
+    },
+    {
+      "filePath": "20-scripts/30-ui/dash_charges_ui.gd",
       "diagnostics": [
         {
           "code": "GDL502",
@@ -2349,93 +2195,197 @@ Project loaded: 35 scripts
       ]
     },
     {
-      "filePath": "03-player/10-scripts/components/cast_component.gd",
+      "filePath": "20-scripts/10-player/movement_fsm.gd",
       "diagnostics": [
         {
-          "code": "GDL101",
-          "message": "Line 34 exceeds 120 characters (length: 124)",
-          "severity": "warning",
-          "line": 34,
-          "column": 0,
-          "endLine": 34,
-          "endColumn": 0
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 13,
+          "column": 1,
+          "endLine": 13,
+          "endColumn": 2
         },
         {
-          "code": "GDL201",
-          "message": "Local variable \u0027spawn_pos\u0027 is declared but never used",
-          "severity": "warning",
+          "code": "GDL502",
+          "message": "Trailing whitespace (2 character(s))",
+          "severity": "hint",
+          "line": 25,
+          "column": 1,
+          "endLine": 25,
+          "endColumn": 3
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 28,
+          "column": 1,
+          "endLine": 28,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
           "line": 33,
-          "column": 5,
+          "column": 1,
           "endLine": 33,
-          "endColumn": 14
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 29,
-          "column": 1,
-          "endLine": 29,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 32,
-          "column": 1,
-          "endLine": 32,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 35,
-          "column": 1,
-          "endLine": 35,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 39,
-          "column": 1,
-          "endLine": 39,
-          "endColumn": 2
-        },
-        {
-          "code": "GDL502",
-          "message": "Trailing whitespace (1 character(s))",
-          "severity": "hint",
-          "line": 41,
-          "column": 1,
-          "endLine": 41,
           "endColumn": 2
         },
         {
           "code": "GDL513",
           "message": "Expected 2 empty line(s) before function, found 1",
           "severity": "hint",
-          "line": 20,
+          "line": 18,
           "column": 0,
-          "endLine": 20,
+          "endLine": 18,
           "endColumn": 4
         },
         {
           "code": "GDL513",
           "message": "Expected 2 empty line(s) before function, found 1",
           "severity": "hint",
-          "line": 24,
+          "line": 22,
           "column": 0,
-          "endLine": 24,
+          "endLine": 22,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 26,
+          "column": 0,
+          "endLine": 26,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 29,
+          "column": 0,
+          "endLine": 29,
           "endColumn": 4
         }
       ]
     },
     {
-      "filePath": "12-cursor/cursor_component.gd",
+      "filePath": "20-scripts/15-projectiles/projectile.gd",
+      "diagnostics": [
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 61,
+          "column": 1,
+          "endLine": 61,
+          "endColumn": 2
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (3 character(s))",
+          "severity": "hint",
+          "line": 68,
+          "column": 1,
+          "endLine": 68,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (3 character(s))",
+          "severity": "hint",
+          "line": 73,
+          "column": 1,
+          "endLine": 73,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (2 character(s))",
+          "severity": "hint",
+          "line": 76,
+          "column": 1,
+          "endLine": 76,
+          "endColumn": 3
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (1 character(s))",
+          "severity": "hint",
+          "line": 88,
+          "column": 68,
+          "endLine": 88,
+          "endColumn": 69
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (2 character(s))",
+          "severity": "hint",
+          "line": 90,
+          "column": 1,
+          "endLine": 90,
+          "endColumn": 3
+        },
+        {
+          "code": "GDL502",
+          "message": "Trailing whitespace (2 character(s))",
+          "severity": "hint",
+          "line": 105,
+          "column": 1,
+          "endLine": 105,
+          "endColumn": 3
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 25,
+          "column": 0,
+          "endLine": 25,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 31,
+          "column": 0,
+          "endLine": 31,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 35,
+          "column": 0,
+          "endLine": 35,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 39,
+          "column": 0,
+          "endLine": 39,
+          "endColumn": 4
+        },
+        {
+          "code": "GDL513",
+          "message": "Expected 2 empty line(s) before function, found 1",
+          "severity": "hint",
+          "line": 55,
+          "column": 0,
+          "endLine": 55,
+          "endColumn": 4
+        }
+      ]
+    },
+    {
+      "filePath": "20-scripts/12-cursor/cursor_component.gd",
       "diagnostics": [
         {
           "code": "GDL502",
