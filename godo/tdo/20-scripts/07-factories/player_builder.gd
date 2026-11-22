@@ -8,7 +8,10 @@ func _ready() -> void:
 		config = DEFAULT_CONFIG
 	
 	var player = build_player()
-	add_child(player)
+	# Получаем корневую ноду (главную сцену)
+	var root_node := get_tree().current_scene 
+	# Добавляем игрока в корень, а не в PlayerBuilder
+	root_node.add_child.call_deferred(player)
 	
 func apply_cfg(player: Player) -> void:
 	player.walk_speed = config.player_speed
@@ -57,7 +60,7 @@ func build_player() -> CharacterBody2D:
 	var camera = Camera2D.new()
 	camera.name = "Camera2D"
 	camera.set_script(CAMERA_SCRIPT)
-	add_child(camera)
+	player.add_child(camera)
 	
 	# --- Курсор  ---
 	ComponentFactory.attach_node2d(player, "CursorComponent", CURSOR_COMPONENT_SCRIPT)

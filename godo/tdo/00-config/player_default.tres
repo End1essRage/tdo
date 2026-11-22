@@ -9,7 +9,6 @@
 script = ExtResource("3_fwf3n")
 custom_sprite_frames = ExtResource("2_utrkq")
 max_dashes = 4
-player_dash_speed = 200.0
 dash_cooldown_duration = 0.6
 bullet_scene = ExtResource("1_p6ryj")
 current_impact_index = 5
